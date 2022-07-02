@@ -1,11 +1,11 @@
 const SOCIAL = [
   {
-    title: 'GitHub',
+    title: 'Github',
     href: 'https://github.com/ichsanputr'
   },
   {
-    title: 'Telegram',
-    href: 'https://t.me/ichsanputr'
+    title: 'Linkedin',
+    href: 'https://www.linkedin.com/in/muhammad-ichsanul-fadhil/'
   },
   {
     title: 'Facebook',
@@ -13,7 +13,7 @@ const SOCIAL = [
   },
   {
     title: 'Email',
-    href: 'mailto: ichsanfadhil67@gmail.com?subject='
+    href: 'mailto: ichsanfadhil67@gmail.com?subject=Hello Ichsan'
   }
 ]
 

@@ -4,12 +4,16 @@ const APP_ROUTE = [
     name: 'Home'
   },
   {
-    path: '/portfolio',
-    name: 'Portfolio'
-  },
-  {
     path: '/blog',
     name: 'Blog'
+  },
+  {
+    path: '/work',
+    name: 'Work'
+  },
+  {
+    path: '/achievement',
+    name: 'Achievement'
   },
   {
     path: '/about',
@@ -18,10 +22,6 @@ const APP_ROUTE = [
 ]
 
 export const ADDT_ROUTE = [
-  {
-    path: '/certificate',
-    name: 'Certificate'
-  },
   {
     path: '/tags',
     name: 'Tags'
