@@ -25,7 +25,7 @@ const HeroWithPhoto: React.FunctionComponent<HeroWithPhotoProps> = ({
     <div
       className={twclsx(
         'content-auto',
-        'flex flex-col pb-10 md:pb-20',
+        'flex flex-col pb-10 md:pb-10',
         'md:flex-row-reverse md:justify-between md:items-center',
         'space-y-4 md:space-y-0 md:space-x-3 md:space-x-reverse'
       )}

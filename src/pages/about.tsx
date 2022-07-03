@@ -11,10 +11,10 @@ import { NextPage } from 'next'
 const About: NextPage = () => {
   const meta = getMetaData({
     title: 'About Me',
-    description: `A computer science student, frontend developer and an adventurer of my own mind. I like to express my feelings through code, and a quite place would be nice to have around me.`,
-    keywords: ['About Rizki Maulana Citra', 'About Rizki M Citra', 'About Rizkicitra', 'About Rizki Citra'],
+    description: `A SMK student, a learner of Cloud Computing, Backend, and Computer Science. I like to learn something new and put the knowledge I have gained into an article.`,
+    keywords: ['About Muhammad Ichsanul Fadhil'],
     og_image: `https://ik.imagekit.io/mlnzyx/attachment/tr:w-${720},h-${720},tr:bl-10,f-auto/profile-about.webp`,
-    og_image_alt: 'Rizki Maulana Citra',
+    og_image_alt: 'Muhammad Ichsanul Fadhil',
     slug: '/about',
     type: 'website'
   })
@@ -22,18 +22,18 @@ const About: NextPage = () => {
   return (
     <Layout {...(meta as LayoutProps)}>
       <HeroWithPhoto
-        title=Muhammad Ichsanul Fadhil
-        subtitle='Rizki Maulana Citra'
+        title='About Me'
+        subtitle='Muhammad Ichsanul Fadhil'
         description={meta.description as string}
         img={{
           src: meta.openGraph?.images ? meta.openGraph.images[0].url : '',
-          alt_title: 'Rizki Maulana Citra'
+          alt_title: 'Muhammad Ichsan'
         }}
       >
         <div className={twclsx('prose dark:prose-invert')}>
           <p className={twclsx('text-theme-700 dark:text-theme-200')}>
-            I choose Information Technology as my main prospect career path, therefore I&apos;m facing many obstacles
-            and it was quite challenging.
+            I have liked computer science since I was 15 years old, self-taught learning with new knowledge is fun for
+            me.
           </p>
           <blockquote>
             <style jsx>
@@ -44,8 +44,7 @@ const About: NextPage = () => {
               `}
             </style>
             <p className={twclsx('text-theme-700 dark:text-theme-200')}>
-              I change during the course of a day. I wake and I&apos;m one person, and when I go to sleep I know for
-              certain I&apos;m somebody else.
+              Make the hereafter in your heart, the world in your hands, and death in your eyelids. ~ Imam Syafii
             </p>
           </blockquote>
         </div>
@@ -53,9 +52,7 @@ const About: NextPage = () => {
 
       <section className={twclsx('pt-10 md:pt-20')}>
         <h2 className={twclsx('mb-2')}>Timeline</h2>
-        <p className={twclsx('max-w-prose mb-4')}>
-          Take a look at my timeline below, it consists of my career path, formal education and more.
-        </p>
+        <p className={twclsx('max-w-prose mb-4')}>My education and career journey with a lot of experience in it.</p>
         <Timeline timeline={timeline} />
       </section>
 
@@ -63,8 +60,10 @@ const About: NextPage = () => {
         <h2 className={twclsx('mb-4')}>Contact</h2>
         <p>
           Hi there, if you want to make a new friendship, bring your idea to reality, or just want to know more about
-          me, please contact me on one of my social media account.
+          me, please contact me on one of my social media account 👇.
         </p>
+        <br></br>
+        Thank You 😄
       </section>
     </Layout>
   )

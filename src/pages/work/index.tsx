@@ -18,18 +18,12 @@ interface ProjectPageProps {
 }
 
 const meta = getMetaData({
-  title: 'Portfolio',
-  description: `Personal portfolio, proven that I've created something with my knowledge and experience, I will grow my skill and combine it with experience I have.`,
-  keywords: [
-    'Rizki Maulana Citra portfolio',
-    'Rizki M Citra portfolio',
-    'Rizkicitra porfolio',
-    'Rizki Citra portfolio',
-    'rizkicitra.dev'
-  ],
+  title: 'My Work',
+  description: `The work/projects that I have done so far have been done individually and with a team.`,
+  keywords: ['Muhammad Ichsan Work', 'Muhammad Ichsan'],
   og_image: `https://og-image.vercel.app/**Portfolio%20%E2%80%94%20Rizki%20M%20Citra**%3Cbr%20%20%2F%3EProof%20Of%20Work.png?theme=dark&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fhyper-bw-logo.svg`,
-  og_image_alt: 'Portfolio — Rizki M Citra',
-  slug: '/portfolio',
+  og_image_alt: 'My Work — Muhammad Ichsan',
+  slug: '/work',
   type: 'website'
 })
 
@@ -44,7 +38,7 @@ const ProjectPage: NextPage<ProjectPageProps> = ({ projects }) => {
       <div className={twclsx('flex flex-col gap-8')}>
         {query.length === 0 && projects.length > 0 ? (
           <section>
-            <h2 className={twclsx('mb-4')}>Personal Portfolio</h2>
+            <h2 className={twclsx('mb-4')}>My Work</h2>
 
             <div className={twclsx('grid grid-cols-1 md:grid-cols-2', 'gap-4 flex-auto')}>
               {projects.map((p) => (
@@ -58,7 +52,7 @@ const ProjectPage: NextPage<ProjectPageProps> = ({ projects }) => {
 
         {query.length > 0 && (
           <section>
-            <h2 className={twclsx('mb-4')}>Search Portfolio</h2>
+            <h2 className={twclsx('mb-4')}>Search My Work</h2>
             {filteredData.length > 0 ? (
               <div className={twclsx('grid grid-cols-1 md:grid-cols-2', 'gap-4 flex-auto')}>
                 {filteredData.map((p) => (
@@ -68,7 +62,7 @@ const ProjectPage: NextPage<ProjectPageProps> = ({ projects }) => {
                 ))}
               </div>
             ) : (
-              <p>No portfolio found, try a lil different?</p>
+              <p>No work found, maybe you typo?</p>
             )}
           </section>
         )}
