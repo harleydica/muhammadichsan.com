@@ -10,7 +10,7 @@ import { NextPage } from 'next'
 
 const About: NextPage = () => {
   const meta = getMetaData({
-    title: 'About',
+    title: 'About Me',
     description: `A computer science student, frontend developer and an adventurer of my own mind. I like to express my feelings through code, and a quite place would be nice to have around me.`,
     keywords: ['About Rizki Maulana Citra', 'About Rizki M Citra', 'About Rizkicitra', 'About Rizki Citra'],
     og_image: `https://ik.imagekit.io/mlnzyx/attachment/tr:w-${720},h-${720},tr:bl-10,f-auto/profile-about.webp`,
@@ -22,7 +22,7 @@ const About: NextPage = () => {
   return (
     <Layout {...(meta as LayoutProps)}>
       <HeroWithPhoto
-        title={meta.title as string}
+        title=Muhammad Ichsanul Fadhil
         subtitle='Rizki Maulana Citra'
         description={meta.description as string}
         img={{
