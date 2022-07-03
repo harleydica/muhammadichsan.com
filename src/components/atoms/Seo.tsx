@@ -11,7 +11,7 @@ const SITE_NAME = process.env.NEXT_PUBLIC_SITE_NAME
  * @returns A Next.js component.
  */
 const Seo: React.FunctionComponent<CustomSeoProps> = ({ ...props }) => {
-  const TITLE_TEMPLATE = `%s — ${props.template ?? SITE_NAME}`
+  const TITLE_TEMPLATE = `%s — Muhammadichsan}`
   return <NextSeo {...props} title={props.title} titleTemplate={TITLE_TEMPLATE} />
 }
 
