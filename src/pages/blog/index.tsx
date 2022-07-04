@@ -6,12 +6,12 @@ import Layout, { LayoutProps } from '@/components/templates/Layout'
 
 import { Blogs } from '@/data/blog/blog.type'
 import { getBlog } from '@/helpers/getBlog'
-import { getPageViewsEach } from '@/helpers/getPageViewsEach'
+// import { getPageViewsEach } from '@/helpers/getPageViewsEach'
 import useSearch from '@/hooks/useSearch'
-import { isProd } from '@/libs/constants/environmentState'
+// import { isProd } from '@/libs/constants/environmentState'
 import { getMetaData } from '@/libs/metaData'
-import { getNewestBlog } from '@/libs/sortBlog'
 
+// import { getNewestBlog } from '@/libs/sortBlog'
 // import { twclsx } from '@/libs/twclsx'
 // import umamiClient from '@/libs/umamiClient'
 import { GetStaticProps, NextPage } from 'next'
@@ -46,16 +46,6 @@ const BlogPage: NextPage<BlogPageProps> = ({ allBlogs }) => {
 
 export const getStaticProps: GetStaticProps<BlogPageProps> = async () => {
   const response = await getBlog()
-
-  if (isProd) {
-    const allBlogs = (await getPageViewsEach(response)).sort(getNewestBlog)
-
-    return {
-      props: {
-        allBlogs
-      }
-    }
-  }
 
   const allBlogs = response.map((r) => ({ ...r.header, est_read: readingTime(r.content).text }))
   return {
