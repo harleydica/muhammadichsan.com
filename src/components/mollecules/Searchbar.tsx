@@ -12,7 +12,7 @@ const Searchbar: React.FunctionComponent<SearchbarProps> = ({ onChange, value })
   return (
     <div
       className={twclsx(
-        'w-full my-8 md:my-16 transition-all',
+        'w-full my-6 md:my-10 transition-all',
         'bg-transparent border border-theme-900',
         'dark:border-transparent dark:bg-theme-800',
         'focus-within:ring-1 ring-theme-900 dark:ring-primary-400'

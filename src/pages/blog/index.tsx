@@ -1,3 +1,6 @@
+// Tag
+import Button from '@/components/atoms/Button'
+// End Tag
 import Card from '@/components/atoms/Card'
 import BlogCard from '@/components/mollecules/BlogCard'
 import Hero from '@/components/mollecules/Hero'
@@ -7,14 +10,40 @@ import Layout, { LayoutProps } from '@/components/templates/Layout'
 import { Blogs } from '@/data/blog/blog.type'
 import { getBlog } from '@/helpers/getBlog'
 import useSearch from '@/hooks/useSearch'
+import useTags from '@/hooks/useTags'
 import { getMetaData } from '@/libs/metaData'
+import { getNewestBlog } from '@/libs/sortBlog'
 import { twclsx } from '@/libs/twclsx'
 
 import { GetStaticProps, NextPage } from 'next'
 import readingTime from 'reading-time'
 
+type OptionColors = Partial<{
+  [x: string]: string
+}>
+
+const getClassName = (str: string) => {
+  const optionColors: OptionColors = {
+    devlife: 'text-slate-700 dark:text-slate-200 bg-slate-100 dark:bg-slate-800',
+    react: 'text-sky-700 bg-sky-100 dark:text-sky-100 dark:bg-sky-900',
+    nextjs: 'text-neutral-800 dark:text-neutral-300 bg-neutral-300 dark:bg-neutral-700',
+    git: 'text-amber-700 bg-amber-100 dark:text-amber-100 dark:bg-amber-800',
+    frontend: 'text-cyan-700 bg-cyan-100 dark:text-cyan-100 dark:bg-cyan-800',
+    webdev: 'text-fuchsia-700 bg-fuchsia-100 dark:text-fuchsia-100 dark:bg-fuchsia-800',
+    hooks: 'text-blue-700 bg-blue-100 dark:text-blue-100 dark:bg-blue-800',
+    'web analytics': 'text-emerald-700 bg-emerald-100 dark:text-emerald-100 dark:bg-emerald-800'
+  }
+
+  const defaultColor = 'text-neutral-700 dark:text-neutral-200 bg-neutral-100 dark:bg-neutral-800'
+
+  return optionColors[str] || defaultColor
+}
+// End Tag
+
 interface BlogPageProps {
   allBlogs: Array<Blogs>
+  tags: string[]
+  blogs: Blogs[]
 }
 
 const meta = getMetaData({
@@ -28,8 +57,30 @@ const meta = getMetaData({
   type: 'website'
 })
 
-const BlogPage: NextPage<BlogPageProps> = ({ allBlogs }) => {
-  const { query, handleChange, filteredData } = useSearch<BlogPageProps['allBlogs']>(allBlogs, 'blog')
+export const getStaticProps: GetStaticProps<BlogPageProps> = async () => {
+  const response = await getBlog()
+
+  const blogs = response.map((b) => ({ ...b.header, est_read: readingTime(b.content).text })).sort(getNewestBlog)
+
+  const tags = response
+    .map((blog) => blog.header.topics)
+    .flat()
+    .filter((tag, index, tags) => tags.indexOf(tag) === index)
+
+  const allBlogs = response.map((r) => ({ ...r.header, est_read: readingTime(r.content).text }))
+
+  return {
+    props: {
+      allBlogs,
+      tags,
+      blogs
+    }
+  }
+}
+
+const BlogPage: NextPage<BlogPageProps> = ({ tags, blogs, allBlogs }) => {
+  const { query, handleChange } = useSearch<BlogPageProps['allBlogs']>(allBlogs, 'blog')
+  const { selectedTags, setNewTag } = useTags()
 
   return (
     <Layout {...(meta as LayoutProps)}>
@@ -37,10 +88,44 @@ const BlogPage: NextPage<BlogPageProps> = ({ allBlogs }) => {
 
       <Searchbar onChange={handleChange} value={query} />
 
+      <h2 className={twclsx('mb-4')}>Tags</h2>
+
+      <section className={twclsx('flex items-stretch', 'flex-wrap flex-auto gap-4', 'pt-4 pb-8')}>
+        {tags.map((t) => (
+          <Button
+            onClick={() => setNewTag(t)}
+            className={twclsx(
+              'py-2 px-4 rounded',
+              !selectedTags.includes(t) && 'motion-safe:active:scale-95 motion-safe:hover:scale-110',
+              !selectedTags.includes(t) && selectedTags.length > 0
+                ? 'bg-theme-500 text-white dark:bg-theme-200 dark:text-theme-900'
+                : getClassName(t)
+            )}
+            key={t}
+          >
+            {t}
+          </Button>
+        ))}
+      </section>
+
+      {selectedTags.length > 0 ? (
+        <section>
+          <div className={twclsx('grid grid-cols-1', 'gap-4 flex-auto')}>
+            {blogs
+              .filter((b) => selectedTags.map((t) => b.topics.includes(t)).includes(true))
+              .map((b) => (
+                <Card key={b.slug}>
+                  <BlogCard {...b} />
+                </Card>
+              ))}
+          </div>
+        </section>
+      ) : null}
+
       {allBlogs.length > 0 && query.length === 0 ? (
         <div className={twclsx('flex flex-col', 'gap-24')}>
           <section>
-            <h2 className={twclsx('mb-4')}>All Post</h2>
+            <h2 className={twclsx('mb-8 mt-10')}>All Post</h2>
             <div className={twclsx('grid grid-cols-1', 'gap-4 flex-auto')}>
               {allBlogs.map((b) => (
                 <Card key={b.slug}>
@@ -51,36 +136,8 @@ const BlogPage: NextPage<BlogPageProps> = ({ allBlogs }) => {
           </section>
         </div>
       ) : null}
-
-      {query.length > 0 && (
-        <section className={twclsx('content-auto')}>
-          <h2 className={twclsx('mb-4')}>Search Post</h2>
-          {filteredData.length > 0 ? (
-            <div className={twclsx('grid grid-cols-1 gap-4', 'flex-auto')}>
-              {filteredData.map((b, id) => (
-                <Card key={b.title.slice(0, 7) + id}>
-                  <BlogCard displayViews {...b} />
-                </Card>
-              ))}
-            </div>
-          ) : (
-            <p>No post found, maybe you typo?</p>
-          )}
-        </section>
-      )}
     </Layout>
   )
-}
-
-export const getStaticProps: GetStaticProps<BlogPageProps> = async () => {
-  const response = await getBlog()
-
-  const allBlogs = response.map((r) => ({ ...r.header, est_read: readingTime(r.content).text }))
-  return {
-    props: {
-      allBlogs
-    }
-  }
 }
 
 export default BlogPage
