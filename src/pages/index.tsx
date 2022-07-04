@@ -36,7 +36,7 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
       <HeroWithPhoto
         title='Muhammad Ichsanul Fadhil'
         subtitle='Cloud &amp; Backend Enthusiast'
-        description="Hello👋, I'm Muhammad Ichsanul Fadhil, a student at SMKN 2 Depok and now self-taught about Cloud Computing and Backend, Welcome to my website where you can find my portfolio, blog and more."
+        description="Hello👋, I'm Muhammad Ichsanul Fadhil, a student at SMKN 2 Depok and currently learn self-taught about Cloud Computing and Backend, Welcome to my website where you can find my work, achievement, blog and more."
         img={{
           alt_title: meta.title as string,
           src: meta?.openGraph?.images ? meta.openGraph.images[0].url : ''

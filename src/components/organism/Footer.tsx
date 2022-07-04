@@ -61,7 +61,7 @@ const Footer: React.FunctionComponent = () => {
       </div>
 
       <p className={twclsx('mb-2', 'text-sm font-medium', 'text-theme-500 dark:text-theme-400')}>
-        Made with &#128150; by{' '}
+        Theme by{' '}
         <UnstyledLink
           title='Rizki Maulana Citras Github Profile'
           className={twclsx(

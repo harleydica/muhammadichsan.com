@@ -9,7 +9,7 @@ export interface CustomSeoProps extends NextSeoProps {
  * @returns A Next.js component.
  */
 const Seo: React.FunctionComponent<CustomSeoProps> = ({ ...props }) => {
-  const TITLE_TEMPLATE = `%s — Muhammadichsan}`
+  const TITLE_TEMPLATE = `%s — Muhammadichsan`
   return <NextSeo {...props} title={props.title} titleTemplate={TITLE_TEMPLATE} />
 }
 

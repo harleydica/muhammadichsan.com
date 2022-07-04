@@ -13,7 +13,7 @@ const ProjectCard = ({ title, summary, slug, stack }: PortfolioHeadProps) => {
         {stack.length > 0 && stack.map((item, index) => <IconFinder type={item} key={item + index} />)}
       </div>
 
-      <UnstyledLink title={title} href={`/portfolio/${slug}`} className={twclsx('absolute inset-0 rounded')}>
+      <UnstyledLink title={title} href={`/work/${slug}`} className={twclsx('absolute inset-0 rounded')}>
         <span className={twclsx('sr-only')}>Read Article about project {title}</span>
       </UnstyledLink>
     </div>

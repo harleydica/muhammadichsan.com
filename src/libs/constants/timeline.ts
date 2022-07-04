@@ -9,45 +9,30 @@ export interface Timeline {
 
 export const timeline: Array<Timeline> = [
   {
+    title: 'Primary School',
+    type: 'edu',
+    place: 'SD Muhammadiyah Kadisoka',
+    start_date: new Date(2011, 3, 14),
+    end_date: new Date(2017, 7, 18),
+    description:
+      'While in elementary school I was taught a lot about the religion of Islam, about attitudes, manners and socializing well.'
+  },
+  {
+    title: 'Secondary School',
+    type: 'edu',
+    place: 'SMPN 1 Kalasan',
+    start_date: new Date(2017, 8, 16),
+    end_date: new Date(2020, 5, 23),
+    description:
+      'In high school I learned about basic sciences such as science, English, and mathematics. For the past 1 year I have been studying online completely and I have used it to find my passion for the future by learning new things.'
+  },
+  {
     title: 'High School',
-    type: 'edu',
-    place: 'Vocational High School 8 Pandeglang',
-    start_date: new Date(2018, 5, 14),
-    end_date: new Date(2021, 4, 28),
+    type: 'work',
+    place: 'SMKN 2 Depok',
+    start_date: new Date(2020, 7, 12),
+    end_date: null,
     description:
-      'Entering High School, it was a pleasant time when I was in High School, learning all of those fundamentals such as logical gate, and I even play around with Java for 2 semesters'
-  },
-  {
-    title: 'College',
-    type: 'edu',
-    place: 'AMIK Serang',
-    start_date: new Date(2021, 9, 16),
-    end_date: null,
-    description: '2021 was a big year for me, I got a scholarship for college, and now Im actively goes to campuss'
-  },
-  {
-    title: 'Intern Frontend Developer',
-    type: 'work',
-    place: 'Skyshi Digital Indonesia',
-    start_date: new Date(2022, 0, 1),
-    end_date: new Date(2022, 2, 31),
-    description:
-      'I work as a Jr. Frontend Developer at skyshi digital, slicing design website to react component, collaborate with my colleague to build an application based on Next.js App.'
-  },
-  {
-    title: 'Assitant Computer Lab',
-    type: 'work',
-    place: 'AMIK Serang',
-    start_date: new Date(2021, 10, 1),
-    end_date: null,
-    description: `I started my job as an Assistant Lab at my College, I usually helping my colleague to deal with computers in the lab, and I often to create education contents for my College and posted it on my College's social media account`
-  },
-  {
-    title: 'Frontend Developer',
-    type: 'work',
-    place: 'Skyshi Digital Indonesia',
-    start_date: new Date(2022, 3, 1),
-    end_date: null,
-    description: `As I'm previously work as an internship, now I'm officially a Frontend Developer at Skyshi Digital Indonesia, I'm working on a project that is based on React.js, and Vue.js, slicing design to code, manipulating data from the server to serve the optimized output to the client.`
+      'During the transition from middle school to high school I have found my passion and I am trying to pursue it, namely in the field of computers. With that, I entered a vocational school majoring in SIJA (System Information Networking and Application). I am very happy to study here because I have a lot of time specifically to learn about the fields that I am good at and the school material also supports it.'
   }
 ]

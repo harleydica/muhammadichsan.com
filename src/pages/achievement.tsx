@@ -12,8 +12,8 @@ import { useCallback, useEffect, useState } from 'react'
 import Lightbox from 'react-image-lightbox'
 
 const meta = getMetaData({
-  title: 'Achievement',
-  description: 'The achievements that I have achieved from the competitions that I have participated in so far.',
+  title: 'My Achievement',
+  description: 'The achievements that I got from the competition.',
   keywords: ['achievement', 'muhammadichsan.com'],
   og_image:
     "https://og-image.vercel.app/**Certificate%20%E2%80%94%20Rizki%20M%20Citra**%3Cbr%20%2F%3EA%20collection%20of%20certificates%20I've%20earned.png?theme=dark&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fhyper-bw-logo.svg",

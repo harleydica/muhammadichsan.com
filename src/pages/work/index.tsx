@@ -38,8 +38,6 @@ const ProjectPage: NextPage<ProjectPageProps> = ({ projects }) => {
       <div className={twclsx('flex flex-col gap-8')}>
         {query.length === 0 && projects.length > 0 ? (
           <section>
-            <h2 className={twclsx('mb-4')}>My Work</h2>
-
             <div className={twclsx('grid grid-cols-1 md:grid-cols-2', 'gap-4 flex-auto')}>
               {projects.map((p) => (
                 <Card key={p.title}>
