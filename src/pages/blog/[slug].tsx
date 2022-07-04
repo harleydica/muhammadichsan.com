@@ -3,24 +3,20 @@ import CustomImage from '@/components/atoms/CustomImage'
 import EditButton from '@/components/mollecules/EditButton'
 import MDXComponents from '@/components/organism/MDXComponents'
 import ContentImage from '@/components/organism/MDXComponents/ContentImage'
-import GiscusComment from '@/components/templates/GiscusComment'
 import Layout from '@/components/templates/Layout'
 
 import { Blogs } from '@/data/blog/blog.type'
 import { getBlog, getBlogBySlug } from '@/helpers/getBlog'
-import { isProd } from '@/libs/constants/environmentState'
 import dateFormat, { dateStringToISO } from '@/libs/dateFormat'
 import { getMetaDataBlog } from '@/libs/metaData'
 import { twclsx } from '@/libs/twclsx'
-import umamiClient from '@/libs/umamiClient'
 
 import { LayoutProps } from 'framer-motion'
 import { GetStaticPaths, GetStaticPathsResult, GetStaticProps, NextPage } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import { ParsedUrlQuery } from 'querystring'
-import { useEffect, useState } from 'react'
-import { HiOutlineCalendar, HiOutlineClock, HiOutlineEye } from 'react-icons/hi'
+import { HiOutlineCalendar, HiOutlineClock } from 'react-icons/hi'
 import readingTime from 'reading-time'
 import rehypeSlug from 'rehype-slug'
 
@@ -33,15 +29,7 @@ interface slug extends ParsedUrlQuery {
   slug: string
 }
 
-interface HTTP {
-  status: boolean
-  message: string
-  data: number
-}
-
 const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
-  const [postViews, setPostViews] = useState<number>(0)
-
   const metaData = getMetaDataBlog({
     ...header,
     slug: '/blog/' + header.slug
@@ -53,22 +41,6 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
     month: 'short',
     year: 'numeric'
   }
-
-  useEffect(() => {
-    ;(async () => {
-      if (isProd) {
-        try {
-          const response = await umamiClient.get<HTTP>('/api/umami/blogviews?slug=' + header.slug)
-
-          setPostViews(response.data.data ?? 0)
-        } catch (error) {
-          console.info('Could not retrieve page views')
-        }
-      } else {
-        setPostViews(0)
-      }
-    })()
-  }, [header.slug])
 
   return (
     <Layout {...(metaData as LayoutProps)}>
@@ -83,11 +55,6 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
               <div className={twclsx('flex items-center', 'gap-2', 'text-sm md:text-base')}>
                 <HiOutlineClock className={twclsx('text-lg')} />
                 <p>{header.est_read}</p>
-              </div>
-
-              <div className={twclsx('flex items-center', 'gap-2', 'text-sm md:text-base')}>
-                <HiOutlineEye className={twclsx('text-lg')} />
-                {postViews > 0 ? <p>{postViews} views</p> : <p>—</p>}
               </div>
             </div>
             <div className={twclsx('flex items-center', 'gap-2')}>
@@ -129,8 +96,6 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
       </article>
 
       <EditButton path={`/blog/${header.slug}.mdx`} />
-
-      <GiscusComment />
     </Layout>
   )
 }
