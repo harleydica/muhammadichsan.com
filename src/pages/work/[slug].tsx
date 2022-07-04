@@ -87,7 +87,7 @@ const ProjectDetailPage: NextPage<ProjectDetailPageProps> = ({ header, mdxSource
           <MDXRemote {...mdxSource} components={MDXComponents} />
         </section>
 
-        <EditButton path={`/work/${header.slug}.mdx`} />
+        <EditButton path={`/portofolio/${header.slug}.mdx`} />
       </article>
     </Layout>
   )
