@@ -16,8 +16,8 @@ const GiscusComment = () => {
         theme={theme}
         emitMetadata='0'
         inputPosition='top'
-        repo='rizkimcitra/rizkicitra'
-        repoId='R_kgDOGh4MEw'
+        repo='ichsanputr/muhammadichsan.com'
+        repoId='509668607'
         category='General'
         categoryId='DIC_kwDOGh4ME84CPxWe'
         mapping='pathname'
