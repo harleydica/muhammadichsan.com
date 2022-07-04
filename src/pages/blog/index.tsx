@@ -1,84 +1,100 @@
 import Card from '@/components/atoms/Card'
+import BlogCard from '@/components/mollecules/BlogCard'
 import Hero from '@/components/mollecules/Hero'
-import ProjectCard from '@/components/mollecules/ProjectCard'
 import Searchbar from '@/components/mollecules/Searchbar'
 import Layout, { LayoutProps } from '@/components/templates/Layout'
 
-import { PortfolioHeadProps } from '@/data/portfolio/portfolio.type'
-import getPortfolio from '@/helpers/getPortfolio'
+import { Blogs } from '@/data/blog/blog.type'
+import { getBlog } from '@/helpers/getBlog'
+import { getPageViewsEach } from '@/helpers/getPageViewsEach'
 import useSearch from '@/hooks/useSearch'
+import { isProd } from '@/libs/constants/environmentState'
 import { getMetaData } from '@/libs/metaData'
-import { getNewestPortfolio } from '@/libs/sortPortfolio'
+import { getNewestBlog } from '@/libs/sortBlog'
 import { twclsx } from '@/libs/twclsx'
 
+// import umamiClient from '@/libs/umamiClient'
 import { GetStaticProps, NextPage } from 'next'
+import readingTime from 'reading-time'
 
-interface ProjectPageProps {
-  projects: Array<PortfolioHeadProps>
+interface BlogPageProps {
+  allBlogs: Array<Blogs>
 }
 
 const meta = getMetaData({
-  title: 'My Work',
-  description: `The work/projects that I have done so far have been done individually and with a team.`,
-  keywords: ['Muhammad Ichsan Work', 'Muhammad Ichsan'],
-  og_image: `https://og-image.vercel.app/**Portfolio%20%E2%80%94%20Rizki%20M%20Citra**%3Cbr%20%20%2F%3EProof%20Of%20Work.png?theme=dark&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fhyper-bw-logo.svg`,
-  og_image_alt: 'My Work — Muhammad Ichsan',
-  slug: '/work',
+  title: 'Blog',
+  description: `I write blog once in a while, talks about Cloud Computing, Computer Science and Backend related topics, I like to share my knowledge and experience throught writing blog.`,
+  keywords: ['Rizki Maulana Citra', 'Rizki M Citra', 'Rizkicitra', 'Rizki Citra', 'rizkicitra.dev'],
+  og_image:
+    'https://og-image.vercel.app/**Blog%20%E2%80%94%20Rizki%20M%20Citra**%3Cbr%20%2F%3ETalks%20about%20Frontend%20Development%20Related%20Topics.png?theme=dark&md=1&fontSize=100px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fhyper-bw-logo.svg',
+  og_image_alt: 'Blog — Rizki M Citra',
+  slug: '/blog',
   type: 'website'
 })
 
-const ProjectPage: NextPage<ProjectPageProps> = ({ projects }) => {
-  const { query, handleChange, filteredData } = useSearch<ProjectPageProps['projects']>(projects, 'portfolio')
+const BlogPage: NextPage<BlogPageProps> = ({ allBlogs }) => {
+  const { query, handleChange, filteredData } = useSearch<BlogPageProps['allBlogs']>(allBlogs, 'blog')
 
   return (
     <Layout {...(meta as LayoutProps)}>
-      <Hero title={meta.title as string} description={meta.description as string} />
+      <Hero title='Blog Muhammad Ichsan' description={meta.description as string} />
+
       <Searchbar onChange={handleChange} value={query} />
 
-      <div className={twclsx('flex flex-col gap-8')}>
-        {query.length === 0 && projects.length > 0 ? (
+      {allBlogs.length > 0 && query.length === 0 ? (
+        <div className={twclsx('flex flex-col', 'gap-24')}>
           <section>
-            <div className={twclsx('grid grid-cols-1 md:grid-cols-2', 'gap-4 flex-auto')}>
-              {projects.map((p) => (
-                <Card key={p.title}>
-                  <ProjectCard {...p} />
+            <h2 className={twclsx('mb-4')}>All Post</h2>
+            <div className={twclsx('grid grid-cols-1', 'gap-4 flex-auto')}>
+              {allBlogs.map((b) => (
+                <Card key={b.slug}>
+                  <BlogCard displayViews {...b} />
                 </Card>
               ))}
             </div>
           </section>
-        ) : null}
+        </div>
+      ) : null}
 
-        {query.length > 0 && (
-          <section>
-            <h2 className={twclsx('mb-4')}>Search My Work</h2>
-            {filteredData.length > 0 ? (
-              <div className={twclsx('grid grid-cols-1 md:grid-cols-2', 'gap-4 flex-auto')}>
-                {filteredData.map((p) => (
-                  <Card key={p.title}>
-                    <ProjectCard {...p} />
-                  </Card>
-                ))}
-              </div>
-            ) : (
-              <p>No work found, maybe you typo?</p>
-            )}
-          </section>
-        )}
-      </div>
+      {query.length > 0 && (
+        <section className={twclsx('content-auto')}>
+          <h2 className={twclsx('mb-4')}>Search Post</h2>
+          {filteredData.length > 0 ? (
+            <div className={twclsx('grid grid-cols-1 gap-4', 'flex-auto')}>
+              {filteredData.map((b, id) => (
+                <Card key={b.title.slice(0, 7) + id}>
+                  <BlogCard displayViews {...b} />
+                </Card>
+              ))}
+            </div>
+          ) : (
+            <p>No post found, maybe you typo?</p>
+          )}
+        </section>
+      )}
     </Layout>
   )
 }
 
-export const getStaticProps: GetStaticProps<ProjectPageProps> = async () => {
-  const response = await getPortfolio()
+export const getStaticProps: GetStaticProps<BlogPageProps> = async () => {
+  const response = await getBlog()
 
-  const projects = response.sort(getNewestPortfolio)
+  if (isProd) {
+    const allBlogs = (await getPageViewsEach(response)).sort(getNewestBlog)
 
+    return {
+      props: {
+        allBlogs
+      }
+    }
+  }
+
+  const allBlogs = response.map((r) => ({ ...r.header, est_read: readingTime(r.content).text }))
   return {
     props: {
-      projects
+      allBlogs
     }
   }
 }
 
-export default ProjectPage
+export default BlogPage
