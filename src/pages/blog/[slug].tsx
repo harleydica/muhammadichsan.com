@@ -49,7 +49,7 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
       <article className={twclsx('content-auto', 'flex flex-col', 'gap-8')}>
         <section className={twclsx('pb-8 border-b', 'border-theme-300 dark:border-theme-700')}>
           <h1 className={twclsx('max-w-prose', 'text-3xl md:text-5xl')}>{header.title}</h1>
-          <p> className={twclsx('mt-4 md:mt-8', 'mb-8')}>{header.summary}</p>
+          <p> className={twclsx('mt-4 md:mt-8', 'mb-8')}{header.summary}</p>
 
           <div className={twclsx('flex flex-col', 'gap-4', 'md:flex-row md:items-center md:justify-between')}>
             <div className={twclsx('flex items-center', 'gap-4')}>
