@@ -10,8 +10,8 @@ const ALBUMS: Albums = [
     src: `https://ik.imagekit.io/uvma3bkbp/lomba_bda_Sj4mTZxTy.png`
   },
   {
-    title: '(Certificate) 1st Place in BDA Programming Competition at National Level',
-    src: `  https://ik.imagekit.io/uvma3bkbp/lomba_bda_panggung_cpZu8UWgh.jpg`
+    title: '1st Place in BDA Programming Competition at National Level',
+    src: `https://ik.imagekit.io/uvma3bkbp/lomba_bda_panggung_cpZu8UWgh.jpg`
   }
 ]
 
