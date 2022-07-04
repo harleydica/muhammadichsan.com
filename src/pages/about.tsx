@@ -13,7 +13,7 @@ const About: NextPage = () => {
     title: 'About Me',
     description: `A SMK student, a learner of Cloud Computing, Backend, and Computer Science. I like to learn something new and put the knowledge I have gained into an article.`,
     keywords: ['About Muhammad Ichsanul Fadhil'],
-    og_image: `https://ik.imagekit.io/mlnzyx/attachment/tr:w-${720},h-${720},tr:bl-10,f-auto/profile-about.webp`,
+    og_image: `https://ik.imagekit.io/uvma3bkbp/IMG_20220704_122659_yPxOWXqUb.jpg`,
     og_image_alt: 'Muhammad Ichsanul Fadhil',
     slug: '/about',
     type: 'website'
