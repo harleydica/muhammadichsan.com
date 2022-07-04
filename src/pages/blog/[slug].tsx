@@ -72,7 +72,7 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
               <CustomImage
                 display='intrinsic'
                 className={twclsx('rounded-full')}
-                src={header.author_image}
+                src='https://ik.imagekit.io/uvma3bkbp/IMG_20220704_122659_yPxOWXqUb.jpg'
                 width={32}
                 height={32}
                 alt={header.author_name}

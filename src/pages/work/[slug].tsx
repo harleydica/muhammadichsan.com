@@ -34,7 +34,7 @@ const ProjectDetailPage: NextPage<ProjectDetailPageProps> = ({ header, mdxSource
     og_image: header.image,
     og_image_alt: header.title,
     keywords: header.stack,
-    slug: '/portfolio/' + header.slug
+    slug: '/work/' + header.slug
   })
 
   return (
@@ -87,7 +87,7 @@ const ProjectDetailPage: NextPage<ProjectDetailPageProps> = ({ header, mdxSource
           <MDXRemote {...mdxSource} components={MDXComponents} />
         </section>
 
-        <EditButton path={`/portfolio/${header.slug}.mdx`} />
+        <EditButton path={`/work/${header.slug}.mdx`} />
       </article>
     </Layout>
   )
