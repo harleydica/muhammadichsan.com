@@ -4,11 +4,11 @@
   "display": "standalone",
   "scope": "/",
   "start_url": "/",
-  "author": "Rizki Maulana Citra",
-  "name": "Rizki Maulana Citra",
-  "app_name": "Rizki Citra Personal Web App",
-  "short_name": "Rizki Citra",
-  "description": "I'm Rizki Maulana Citra, a guy who loves to code, music and coffee, talks about React, Next.js, CSS and Web Development related topics.",
+  "author": "Muhammad Ichsanul Fadhil",
+  "name": "Muhammad Ichsanul Fadhil",
+  "app_name": "Muhammad Ichsan Personal Web App",
+  "short_name": "Muhammad Ichsan",
+  "description": "I'm Muhammad Ichsanul Fadhil, a guy who loves to code, talks about Cloud, Golang and Backend related topics.",
   "icons": [
     {
       "src": "/icon-192x192.png",

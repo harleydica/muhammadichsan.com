@@ -50,7 +50,7 @@ const About: NextPage = () => {
         </div>
       </HeroWithPhoto>
 
-      <section className={twclsx('pt-10 md:pt-10')}>
+      <section className={twclsx('')}>
         <h2 className={twclsx('mb-2')}>Timeline</h2>
         <p className={twclsx('max-w-prose mb-4')}>My education and career journey with a lot of experience in it.</p>
         <Timeline timeline={timeline} />
