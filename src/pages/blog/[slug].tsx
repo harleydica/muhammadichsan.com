@@ -77,7 +77,7 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
                 height={32}
                 alt={header.author_name}
               />
-              <p>{header.author_name}</p>
+              <p>Muhammad Ichsanul F</p>
             </div>
           </div>
         </section>
