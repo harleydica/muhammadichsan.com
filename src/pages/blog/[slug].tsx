@@ -3,6 +3,7 @@ import CustomImage from '@/components/atoms/CustomImage'
 import EditButton from '@/components/mollecules/EditButton'
 import MDXComponents from '@/components/organism/MDXComponents'
 import ContentImage from '@/components/organism/MDXComponents/ContentImage'
+import UnstyledLink from '@/components/atoms/UnstyledLink'
 import Layout from '@/components/templates/Layout'
 
 import { Blogs } from '@/data/blog/blog.type'
@@ -48,7 +49,7 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
       <article className={twclsx('content-auto', 'flex flex-col', 'gap-8')}>
         <section className={twclsx('pb-8 border-b', 'border-theme-300 dark:border-theme-700')}>
           <h1 className={twclsx('max-w-prose', 'text-3xl md:text-5xl')}>{header.title}</h1>
-          <p className={twclsx('mt-4 md:mt-8', 'mb-8')}>{header.summary}</p>
+          <p> className={twclsx('mt-4 md:mt-8', 'mb-8')}>{header.summary}</p>
 
           <div className={twclsx('flex flex-col', 'gap-4', 'md:flex-row md:items-center md:justify-between')}>
             <div className={twclsx('flex items-center', 'gap-4')}>
@@ -77,7 +78,20 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
                 height={32}
                 alt={header.author_name}
               />
-              <p>Muhammad Ichsanul F</p>
+              <p className={twclsx('text-sm font-medium', 'text-theme-500 dark:text-theme-400')}>
+              Written by{' '}
+              <UnstyledLink
+                title='Muhammad Ichsanul F'
+                className={twclsx(
+                  'text-primary-600 hover:text-primary-500',
+                  'dark:text-primary-400 dark:hover:text-primary-300',
+                  'umami--click--github-profile-button'
+                )}
+                href='https://github.com/ichsanputr'
+              >
+                Muhammad Ichsanul F
+              </UnstyledLink>
+            </p>
             </div>
           </div>
         </section>
