@@ -13,7 +13,8 @@ import {
   SiSupabase,
   SiTailwindcss,
   SiTypescript,
-  SiVite
+  SiVite,
+  SiGo
 } from 'react-icons/si'
 
 interface IconFinderProps {
@@ -64,6 +65,9 @@ const IconFinder: React.FunctionComponent<IconFinderProps> = ({ type, className 
 
     case 'supabase':
       return <SiSupabase className={twclsx('text-emerald-600 dark:text-emerald-500', className)} />
+
+    case 'golang':
+      return <SiGo className={twclsx('text-emerald-600 dark:text-emerald-500', className)} />
 
     default:
       return <SiCodesandbox />
