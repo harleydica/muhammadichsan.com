@@ -7,7 +7,7 @@ module.exports = withPwa({
   images: {
     domains: ['ik.imagekit.io', 'og-image.vercel.app', 'media3.giphy.com', 'media0.giphy.com']
   },
-  // reactStrictMode: true,
+  // reactStrictMode: true
   // replace react with preact if on production
   webpack(config, { dev, isServer }) {
     if (!dev && !isServer) {
