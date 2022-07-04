@@ -52,6 +52,9 @@ const CertificatePage: NextPage = () => {
   return (
     <Layout {...meta}>
       <Hero title={meta.title as string} description={meta.description as string} />
+      <p>
+        <b>🔍 Click image for detail</b>
+      </p>
       <section
         className={twclsx(
           'content-auto',
