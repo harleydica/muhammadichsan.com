@@ -26,7 +26,7 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
     template: 'Cloud & Backend Enthusiast',
     description: `Personal Website, Online Portfolio And Blog, Built On Top Of NEXT.js, An Online Space For Muhammad Ichsan To Share His Knowledge And Experience.`,
     keywords: ['Muhammad Ichsanul Fadhil', 'Muhammad Ichsanul F', 'ichsanputr', 'Muhammadichsan', 'muhammadichsan.com'],
-    og_image: `https://ik.imagekit.io/uvma3bkbp/IMG_20220704_122607_15wtmsgus.jpg',
+    og_image: 'https://ik.imagekit.io/uvma3bkbp/IMG_20220704_122607_15wtmsgus.jpg',
     og_image_alt: 'Muhammad Ichsanul Fadhil',
     slug: '/',
     type: 'website'
