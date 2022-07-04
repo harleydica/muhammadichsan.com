@@ -52,6 +52,7 @@ const CertificatePage: NextPage = () => {
   return (
     <Layout {...meta}>
       <Hero title={meta.title as string} description={meta.description as string} />
+      <br></br>
       <p>
         <b>🔍 Click image for detail</b>
       </p>
