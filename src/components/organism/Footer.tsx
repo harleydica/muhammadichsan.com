@@ -60,8 +60,8 @@ const Footer: React.FunctionComponent = () => {
         </div>
       </div>
 
-      <p className={twclsx('mb-2', 'text-sm font-medium', 'text-theme-500 dark:text-theme-400')}>
-        Theme by{' '}
+      <p className={twclsx('text-sm font-medium', 'text-theme-500 dark:text-theme-400')}>
+        Theme &#128150; by{' '}
         <UnstyledLink
           title='Rizki Maulana Citras Github Profile'
           className={twclsx(
@@ -73,10 +73,6 @@ const Footer: React.FunctionComponent = () => {
         >
           Rizki M Citra
         </UnstyledLink>
-      </p>
-
-      <p className={twclsx('text-sm font-medium text-theme-500', 'dark:text-theme-400')}>
-        &copy; 2021 - {YEAR_NOW} Under MIT License
       </p>
     </footer>
   )

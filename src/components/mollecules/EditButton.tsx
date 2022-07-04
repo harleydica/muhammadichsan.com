@@ -23,7 +23,7 @@ const EditButton: React.FunctionComponent<EditButtonProps> = ({ path }) => {
       <UnderlineLink
         title='Edit on GitHub'
         className={twclsx('text-sm md:text-base', 'text-theme-800 dark:text-theme-200')}
-        href={`https://github.com/rizkimcitra/rizkicitra/edit/main/src/data` + path}
+        href={`https://github.com/ichsanputr/muhammadichsan.com/edit/main/src/data` + path}
       >
         Edit this on GitHub
       </UnderlineLink>
