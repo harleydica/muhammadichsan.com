@@ -14,7 +14,6 @@ const Footer: React.FunctionComponent = () => {
     'text-theme-500 hover:text-primary-500',
     'dark:text-theme-400 dark:hover:text-primary-400'
   )
-  const YEAR_NOW = new Date().getFullYear()
 
   if (isError) {
     return null
