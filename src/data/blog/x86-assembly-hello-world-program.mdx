@@ -17,7 +17,7 @@ To start learning a language, we should start by creating a simple program, for 
 
 So let's go 🚀
 
-## Looking into code 🔎
+## Looking into code 👁️
 
 > In this tutorial i use x86-32 bit assembly with NASM assembler and Debian distro
 
@@ -47,12 +47,42 @@ _start:
 Run that code with the following command.
 
 ```bash
-// tells nasm that the output file object is elf 32 bit
+#!/bin/sh
+
 nasm -f elf32 -o hello-world.o hello-world.s
-// link hello-world.o with other neccesary object file
 ld -o hello-world hello-world.o
 ```
 
 After you run the two commands then there will be an executable file, and you can execute it with `./hello-world` command.
 
-For convert from assembly to object file i use `-f elf32` option. This option means that we ask nasm to create an object file of type elf 32, elf (Executable and Linkable Format) is a format for object files used for Unix & Unix-like systems on x86 processors. Other option of -f flag you can see it through the [NASM manual](https://www.csie.ntu.edu.tw/~comp03/nasm/nasmdoc6.html). 
+For convert from assembly to object file i use `-f elf32` option. This option means that we ask nasm to create an object file of type elf 32, elf (Executable and Linkable Format) is a format for object files used for Unix & Unix-like systems on x86 processors. Other option of -f flag you can see it through the [NASM manual](https://www.csie.ntu.edu.tw/~comp03/nasm/nasmdoc6.html).
+
+## Code explanation 🔎
+
+in the first line we have `global _start`, what is it?
+
+### global _start
+
+Like EXTERN in C, the global directive in NASM functions to change a variable so that it has global access. Usually the global keyword is used in conjunction with _start, it serves to tell the program from which point it starts code execution. A pair of `global _keyword` it will be useful if in your .text section you have a label, if you don't have a label in it then you shouldn't have to declare it.
+
+**_start** is the default label starting point created by NASM. Because it's the default, we can change it, to change it we can use the `-e` option during the linker process. For example, I want to change the starting point of the program to myStart label, then that subroutine will call the _start label, like the code below.
+
+```wasm
+...
+myStart:
+    mov ebx, 1
+    jmp _start
+
+_start:
+    mov eax, 1
+```
+
+Now to notify NASM that the program's starting point is changed to myStart we can add the options below.
+
+```bash
+#!/bin/sh
+
+ld -e myStart -o hello-world hello-world.o
+```
+
+When the program is run, it will work on the code in the myStart label first, until it reaches the `jmp _start` line, the _start label will be executed.
