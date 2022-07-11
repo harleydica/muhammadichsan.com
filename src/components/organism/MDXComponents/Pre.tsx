@@ -44,6 +44,7 @@ const Pre = ({ children, className }: PreProps) => {
             'text-theme-100 bg-primary-600'
           )}
         >
+          Jokowi
           {className?.replace('language-', '').toUpperCase()}
         </div>
       </div>
