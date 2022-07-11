@@ -49,7 +49,7 @@ const Pre = ({ children, className }: PreProps) => {
           }
 
           {className?.replace('language-', '').toUpperCase()  === 'WASM' &&
-            className?.replace('language-', '').toUpperCase()
+            'Assembly'
           }
         </div>
       </div>
