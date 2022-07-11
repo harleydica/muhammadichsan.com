@@ -58,8 +58,24 @@ In mid-June, I started to encourage myself to learn React, as you may know, JSX 
 At first I was really confused, I'm actually wanted to quit to learn React, but because of my hard work and watching lots of videos on YouTube, I finally knew how to write JSX and make a Web with React.
 
 ```wasm
-export default function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+global _start
+
+section .text
+
+_start:
+  mov rax, 1        ; write(
+  mov rdi, 1        ;   STDOUT_FILENO,
+  mov rsi, msg      ;   "Hello, world!\n",
+  mov rdx, msglen   ;   sizeof("Hello, world!\n")
+  syscall           ; );
+
+  mov rax, 60       ; exit(
+  mov rdi, 0        ;   EXIT_SUCCESS
+  syscall           ; );
+
+section .rodata
+  msg: db "Hello, world!", 10
+  msglen: equ $ - msg
 }
 ```
 
