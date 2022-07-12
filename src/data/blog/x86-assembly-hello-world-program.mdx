@@ -13,7 +13,7 @@ related: []
 
 x86 assembly is an interesting language for us to learn, considering the architecture of this language is already used by most modern computers today.
 
-To start learning a language, we should start by creating a simple program, for example the Hello World program. In this article we will learn together to make the program and will discuss it line by line.
+To start learning a language, we should start by creating a simple program, for example the Hello World program. In this article we will learn together to make that program with x86 assembly and we will discuss the program line by line.
 
 So let's go 🚀
 
@@ -21,7 +21,7 @@ So let's go 🚀
 
 > In this tutorial i use x86-32 bit assembly with NASM assembler and Debian distro
 
-The code below is a hello world with x86 assembly program
+The code below is a hello world program with x86 assembly languange.
 
 ```wasm
 global _start
@@ -47,8 +47,6 @@ _start:
 Run that code with the following command.
 
 ```bash
-#!/bin/sh
-
 nasm -f elf32 -o hello-world.o hello-world.s
 ld -o hello-world hello-world.o
 ```
@@ -59,7 +57,7 @@ For convert from assembly to object file i use `-f elf32` option. This option me
 
 ## Code explanation 🔎
 
-in the first line we have `global _start`, what is it?
+In the first line we have `global _start`, what is it?
 
 ### global _start
 
@@ -86,3 +84,6 @@ ld -e myStart -o hello-world hello-world.o
 ```
 
 When the program is run, it will work on the code in the myStart label first, until it reaches the `jmp _start` line, the _start label will be executed.
+
+### section .data
+
