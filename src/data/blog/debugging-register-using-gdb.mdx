@@ -15,9 +15,38 @@ Register is a memory unit that has a very small capacity, has the fastest speed,
 
 To study these registers, we can debug the assembly code that we run. With a tool called GDB later we will be able to see the contents of the register in real time with every assembly instruction that we give.
 
-Okay no need to take too long, let's do that now 🏎️
+Okay no need to take too long, let's do that now 🚓
 
 ## Preparation 🍳
+
+We will use several tools for viewing and debugging the contents of the register, those tools are.
+
+*NASM Assembler (Linux)
+*GDB Debugger
+*Any linux distro
+
+And for practice, make sure you've studied assembly language, at least you've used the MOV command, that's enough 👌
+
+## Lets see the contents of each register 🔎
+
+x86 architecture has at least 16 registers and they are divided into 4 parts according to their function, they are General Purpose Register, Segment, Pointer, and Indicator.
+
+Let's start with the General Purpose Register first.
+
+### General Purpose Register
+
+General purpose register consists of 4 registers, there are EAX, EBX, ECX, and EDX. Each register has a memory capacity of 32 bits or 8 bytes.
+
+You can use the four registers for anything, whether it's to store variables, instructions, or data.
+
+There are no special rules regarding the contents of these registers, but usually the programmers set the four registers to be used in some way, for example.
+
+*Accumulator register (EAX) = for store arithmatic operation and result data
+*Base register (BX) = pointer to data in memory (located in segment register DS, when you use segmented addressing)
+*Counter register (CX) = Used for shift/rotate instructions and loops
+*Data register (DX) = arithmetic operations and I/O operations.
+
+
 
 
 
