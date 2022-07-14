@@ -19,11 +19,15 @@ Okay no need to take too long, let's do that now 🚓
 
 ## Preparation 🍳
 
+For basic knowledge the figure below explains the level of each register. For general purpose registers, we can break them down into smaller bytes, for example EAX (32bit) has AX (16bit) and AH & AL (8bit) parts.
+
+![](https://ik.imagekit.io/uvma3bkbp/Screenshot_from_2022-07-14_18-06-27_WKZ-c1TfZj.png)
+
 We will use several tools for viewing and debugging the contents of the register, those tools are.
 
-*NASM Assembler (Linux)
-*GDB Debugger
-*Any linux distro
+- NASM Assembler (Linux)
+- GDB Debugger
+- Any linux distro
 
 And for practice, make sure you've studied assembly language, at least you've used the MOV command, that's enough 👌
 
@@ -41,15 +45,14 @@ You can use the four registers for anything, whether it's to store variables, in
 
 There are no special rules regarding the contents of these registers, but usually the programmers set the four registers to be used in some way, for example.
 
-*Accumulator register (EAX) = for store arithmatic operation and result data
-*Base register (BX) = pointer to data in memory (located in segment register DS, when you use segmented addressing)
-*Counter register (CX) = Used for shift/rotate instructions and loops
-*Data register (DX) = arithmetic operations and I/O operations.
+- Accumulator register (EAX) = for store arithmatic operation and result data
+- Base register (BX) = pointer to data in memory (located in segment register DS, when you use segmented addressing)
+- Counter register (CX) = Used for shift/rotate instructions and loops
+- Data register (DX) = arithmetic operations and I/O operations.
 
 To see the contents of the general purpose register here i have prepared a simple x86 program, please copy the program below and compile the code using the command `nasm -f elf -g -F dwarf a.asm` then linking with 'ld -m elf_i386 -o a a.o`.
 
 ```wasm
-
 
 ```
 
