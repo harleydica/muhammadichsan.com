@@ -47,24 +47,28 @@ There are no special rules regarding the contents of these registers, but usuall
 
 - Accumulator register (EAX) = for store arithmatic operation and result data
 - Base register (BX) = pointer to data in memory (located in segment register DS, when you use segmented addressing)
-- Counter register (CX) = Used for shift/rotate instructions and loops
+- Counter register (CX) = used for shift/rotate instructions and loops
 - Data register (DX) = arithmetic operations and I/O operations.
 
 To see the contents of the general purpose register here i have prepared a simple x86 program, please copy the program below and compile the code using the command `nasm -f elf -g -F dwarf a.asm` then linking with 'ld -m elf_i386 -o a a.o`.
 
 ```wasm
-section .data
-    yourText:  db  'Hello There', 10
-
 section .text
 
 global _start
 
 _start:
     mov eax, 0x474A3B ; fill 24bit data to register eax
-    mov ebx, yourText ; store memory address of yourText variable to ebx register
-
+    mov bx, 1001001111110000b ; fill 16 bit data binary to ebx
 ```
+When we run the program, there are 2 things that will happen in the processor, first is filling the binary value of 474A3B hexadecimal to the EAX register and filling 1001001111110000 to the AX register. Using `gdb a` command we can debug that program and see the contents of the content register step by step.
+
+![](https://i.ibb.co/GWSSRkj/Screenshot-from-2022-07-14-19-51-40.png)
+
+### Segment Register
+
+
+
 
 
 
