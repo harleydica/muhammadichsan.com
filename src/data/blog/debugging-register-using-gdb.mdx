@@ -21,7 +21,7 @@ Okay no need to take too long, let's do that now 🚓
 
 For basic knowledge the figure below explains the level of each register. For general purpose registers, we can break them down into smaller bytes, for example EAX (32bit) has AX (16bit) and AH & AL (8bit) parts.
 
-![](https://ik.imagekit.io/uvma3bkbp/Screenshot_from_2022-07-14_18-06-27_WKZ-c1TfZj.png?ik-sdk-version=javascript-1.4.3&updatedAt=1657796975551)
+![Register Structure](https://ik.imagekit.io/uvma3bkbp/Screenshot_from_2022-07-14_18-06-27_WKZ-c1TfZj.png?ik-sdk-version=javascript-1.4.3&updatedAt=1657796975551)
 
 We will use several tools for viewing and debugging the contents of the register, those tools are.
 
@@ -63,7 +63,7 @@ _start:
 ```
 When we run the program, there are 2 things that will happen in the processor, first is filling the binary value of 474A3B hexadecimal to the EAX register and filling 1001001111110000 to the AX register. Using `gdb a` command we can debug that program and see the contents of the content register step by step.
 
-![](https://i.ibb.co/GWSSRkj/Screenshot-from-2022-07-14-19-51-40.png)
+![Content of Register](https://i.ibb.co/GWSSRkj/Screenshot-from-2022-07-14-19-51-40.png)
 
 ### Segment Register
 
