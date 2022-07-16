@@ -14,6 +14,10 @@ const SOCIAL = [
   {
     title: 'Email',
     href: 'mailto:ichsanfadhil67@gmail.com?subject=Hello Ichsan'
+  },
+  {
+    title: 'Youtube',
+    href: 'https://www.youtube.com/channel/UClUtIblK_TBgD6LZ1_7rvig,'
   }
 ]
 
