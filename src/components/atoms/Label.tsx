@@ -30,7 +30,7 @@ const Label: React.FunctionComponent<LabelProps> = (props) => {
         </div>
       )
 
-    case 'git':
+    case 'GDB':
       return (
         <div className={twclsx(baseClass, 'text-amber-700 bg-amber-100 dark:text-amber-100 dark:bg-amber-800')}>
           {props.type}
@@ -51,14 +51,14 @@ const Label: React.FunctionComponent<LabelProps> = (props) => {
         </div>
       )
 
-    case 'web analytics':
+    case 'Computer Science':
       return (
         <div className={twclsx(baseClass, 'text-emerald-700 bg-emerald-100 dark:text-emerald-100 dark:bg-emerald-800')}>
           {props.type}
         </div>
       )
 
-    case 'hooks':
+    case 'Assembly':
       return (
         <div className={twclsx(baseClass, 'text-blue-700 bg-blue-100 dark:text-blue-100 dark:bg-blue-800')}>
           {props.type}
