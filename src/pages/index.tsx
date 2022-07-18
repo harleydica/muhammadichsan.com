@@ -24,7 +24,7 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
   const meta = getMetaData({
     title: 'My Web',
     template: 'Cloud & Backend Enthusiast',
-    description: `Personal Website, Online Portfolio And Blog, Built On Top Of NEXT.js, An Online Space For Muhammad Ichsan To Share His Knowledge And Experience.`,
+    description: `Muhammad ichsanul fadhil personal website, its contain about my blog, work, achievment and more. You can call me with Ichsan or Ichsanputr.`,
     keywords: ['Muhammad Ichsanul Fadhil', 'Muhammad Ichsanul F', 'ichsanputr', 'Muhammadichsan', 'muhammadichsan.com'],
     og_image: 'https://ik.imagekit.io/uvma3bkbp/IMG_20220704_122607_15wtmsgus.jpg',
     og_image_alt: 'Muhammad Ichsanul Fadhil',
