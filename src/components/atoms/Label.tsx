@@ -65,6 +65,7 @@ const Label: React.FunctionComponent<LabelProps> = (props) => {
         </div>
       )
 
+
     default:
       return (
         <div className={twclsx(baseClass, 'text-neutral-700 dark:text-neutral-200 bg-neutral-100 dark:bg-neutral-800')}>
