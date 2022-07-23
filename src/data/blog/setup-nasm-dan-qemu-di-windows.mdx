@@ -81,3 +81,8 @@ Silahkan anda masuk ke direktori folder dari TetrOS dan jalankan perintah dibawa
 nasm -f bin tetros.asm -o tetros.bin
 ```
 
+Perintah tersebut akan mengubah kode assembly kita yang berisi kumpulan perintah menjadi file binary asli yang nantinya akan di ambil BIOS dan dijalankan oleh CPU. BIOS yang dipakai oleh Qemu yaitu **SeaBIOS** secara default menggunakan metode **Legacy** untuk prosess booting, karena metode legacy menggunakan partisi MBR maka kapasits file bootloader juga dibatasi sebesar 512kb dan file binary tetros pun harus memenuhi syarat tersebut (cek gambar di bawah).
+
+![File Size TetrOS](https://ik.imagekit.io/uvma3bkbp/powershell_6QMsvIQeTW_QO2uJsAg6.png?ik-sdk-version=javascript-1.4.3&updatedAt=1658538557718 'File Size TetrOS')
+
+
