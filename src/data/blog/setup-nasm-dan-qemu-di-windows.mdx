@@ -14,7 +14,7 @@ keywords:
 related: []
 ---
 
-NASM dan Qemu merupakan 2 software yang tidak bisa dipisahkan satu sama lainya saat kita hendak membuat sebuah aplikasi sistem seperti bootloader, OS, maupun kernel. NASM assembler kita pakai untuk mengubah kode assembly ke target arsitektur yang kita tentukan dan qemu digunakan untuk memvisualisasi program di tingkat *low-level*.
+NASM dan Qemu merupakan 2 software yang tidak bisa dipisahkan satu sama lainya saat kita hendak membuat sebuah aplikasi sistem seperti bootloader, OS, maupun kernel. NASM kita gunakan untuk mengubah kode assembly ke target arsitektur yang kita tentukan dan qemu digunakan untuk memvisualisasi program di tingkat *low-level*.
 
 Kedua software ini sebenarnya dibuat khusus untuk UNIX-system dan tidak bisa digunakan di Windows, namun sejak tahun 2018 para developer NASM pun merilis versi pertama mereka secara open source, begitu juga dengan Qemu sudah tersedia untuk windows sejak tahun 2016.
 
@@ -45,7 +45,7 @@ winget install nasm -i
 Setting konfigurasi PATH windows agar kita bisa mengeksekusi file executable nya dari direktori manapun.
 
 ```bash
-setx Path "%Path%;C:\Program Files\NASM\"
+$Env:PATH += ";C:\Program Files\NASM"
 ```
 
 Verifikasi jika NASM sudah terinstall.
@@ -55,5 +55,29 @@ nasm --version
 ```
 Jika anda tidak mempunyai winget maka sebagai gantinya anda bisa menginstallnya menggunakan [NASM installer x64](https://www.nasm.us/pub/nasm/releasebuilds/2.14.02/win64/). Jalankan program tersebut dan konfigurasi dengan default saja dan jika sudah jangan lupa untuk mengatur konfigurasi path nya 😗
 
+## Install dan Setup Qemu di Windows
 
+Proses penginstallan Qemu di windows sebenarnya sama saja dengan NASM, silahkan kunjungi halaman download [Qemu w64 64bit](https://qemu.weilnetz.de/w64/2022/).
+
+Jalankan file executable yang telah anda download tersebut lalu konfigurasi secara default saja. Jika sudah lakukan konfigurasi path dengan perintah dibawah ini.
+
+```bash
+$Env:PATH += ";C:\Program Files\qemu"
+```
+
+Verifikasi jika qemu sudah berhasil diinstall.
+
+```bash
+qemu-system-i386 -h
+```
+
+## Menjalankan TetrOS dengan NASM dan Qemu
+
+Pastikan anda sudah mendownload file TetrOS melalui link github yang sudah saya bagikan di atas, di dalam folder tersebut ada file **Makefile** yang bisa anda jalankan dengan perintah **make run** dan ada juga file assembly native dan image. Untuk kali ini saya akan menggunakan metode manual saja yaitu dengan build manual agar kita bisa memanfaatkan kedua software tadi (NASM & Qemu).
+
+Silahkan anda masuk ke direktori folder dari TetrOS dan jalankan perintah dibawah ini untuk mengcompile kode assembly native ke file binary,
+
+```bash
+nasm -f bin tetros.asm -o tetros.bin
+```
 
