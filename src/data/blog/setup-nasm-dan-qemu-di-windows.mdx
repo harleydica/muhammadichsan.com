@@ -81,8 +81,23 @@ Silahkan anda masuk ke direktori folder dari TetrOS dan jalankan perintah dibawa
 nasm -f bin tetros.asm -o tetros.bin
 ```
 
-Perintah tersebut akan mengubah kode assembly kita yang berisi kumpulan perintah menjadi file binary asli yang nantinya akan di ambil BIOS dan dijalankan oleh CPU. BIOS yang dipakai oleh Qemu yaitu **SeaBIOS** secara default menggunakan metode **Legacy** untuk prosess booting, karena metode legacy menggunakan partisi MBR maka kapasits file bootloader juga dibatasi sebesar 512kb dan file binary tetros pun harus memenuhi syarat tersebut (cek gambar di bawah).
+Perintah tersebut akan mengubah kode assembly kita yang berisi kumpulan perintah menjadi file binary asli yang nantinya akan di ambil BIOS dan dijalankan oleh CPU. BIOS yang dipakai oleh Qemu yaitu **SeaBIOS** secara default menggunakan metode **Legacy** untuk prosess booting, karena metode legacy menggunakan partisi MBR maka kapasitas file bootloader juga dibatasi sebesar 512kb dan file binary tetros pun harus memenuhi syarat tersebut (cek gambar di bawah).
 
 ![File Size TetrOS](https://ik.imagekit.io/uvma3bkbp/powershell_6QMsvIQeTW_QO2uJsAg6.png?ik-sdk-version=javascript-1.4.3&updatedAt=1658538557718 'File Size TetrOS')
 
+Untuk memahami lebih lanjut mengenai maksud dari hubungan anatara legacy bios dan MBR anda bisa membaca artikel saya ini [MBR (Master Boot Record) dan Kaitanya dengan Legacy BIOS](https://muhammadichsan.com/blog/mbr-dan-legacy-bios).
+
+### Jalankan TetrOS 🎠
+
+File binary sudah kita dapatkan dan kita bisa muat file tersebut ke memori disk virtual agar nantinya program kita tersebut bisa ditemukan oleh BIOS. Disini sebagai contoh saya akan menggunakan floopy disk sebagai memorinya, kita bisa menggunakan option flag `-fda tetros.bon` untuk memasukkan file tersebut ke bootsector floopy.
+
+File TetrOS sudah ada di bootsector floopy selanjunya saatnya kita menjalan virtual machine menggunakan qemu, silahkan jalankan perintah dibawah ini.
+
+```bash
+qemu-system-i386 -fda tetros.bin
+```
+
+Kenapa saya memakai arsitektur i386? bukan x86_64? yap sebenarnya kita bisa saja menjalankan program ini di dua arsitektur itu, karena intel sendiri sudah mendukung *backward compatibility* maka saya rasa itu tidak akan menjadi masalah 😀
+
+Jika berhasil maka nanti akan muncul sebuah popup window dari qemu yang menandakan program bootloader kita sudah berhasil dimuat oleh bios dan berhasil dijalankan dengan lancar oleh (virtual) CPU milik qemu.
 
