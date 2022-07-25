@@ -17,17 +17,19 @@ related: []
 
 Akhir-akhir ini saya sedang semangat untuk mempelajari ketiga raja komponen dalam dunia pemrograman 😁 yaitu CPU, RAM, dan Harddisk. Belajar ketiga komponen fisik tersebut merupakan tantangan terbesar saya dalam memulai belajar di dunia pemrograman, seperti yang suhu bilang bahwa ***"computer science is number 1"*** dan memang saya rasa itu benar.
 
-Untuk memulai petualangan saya mempelajari memori harddisk terlebih dahulu, ya.. karena saya kira sangat mudah untuk mempelajarinya saya kira hanya ada kayak 4gb, 8gb, dan lainya namun setelah saya mempelajari lebih dalam perkiraan saya tentang memori salah besar 🥲. Ternyata komponen-komponen semua itu saling terhubung dan tidak bisa dipisahkan satu sama lain, ada banyak istilah yang sudah sering saya dengar namun saya masih buta dengan konsep nya hehe.
+Untuk memulai petualangan ini saya mulai mempelajari memori terlebih dahulu, ya.. karena saya kira sangat mudah untuk mempelajarinya saya kira hanya ada seperti 4gb, 8gb, dan lainya namun setelah saya mempelajari lebih dalam perkiraan saya tentang memori salah besar 🥲. Ternyata komponen-komponen semua itu saling terhubung dan tidak bisa dipisahkan satu sama lain, ada banyak istilah yang sudah sering saya dengar namun masih buta dengan konsepnya hehe.
 
 Petualangan di dunia memori saya mulai dengan mempelajari partisi, salah satunya yaitu MBR (Master Boot Record). Saya menemukan istilah ini saat sedang belajar tentang BIOS, karena saya mempunyai prinsip ***"hilangkan kepenasaranmu sampai tuntas"*** maka dari itu saya mulai mempelajarinya 😆. Untuk memperkuat pemahaman saya mengenai MBR disini saya akan membagikan secuil ilmu yang telah saya dapatkan dari internet, google, maupun youtube dan semoga kita bisa mempelajarinya bersama dan faham konsep MBR secara tuntas.
 
-Karena pembahasan yang akan kita  bahasa lumayan banyak, untuk mempermudeah pembagian bab anda bisa loncat ke sibbab dengan daftar isi di bawah ini.
+## Pengertian MBR (Master Boot Record)
 
-1. [BPengertian MBR 9mATER bOOT rECORD](https://www.dicoding.com/academies/123)
+Mungkin anda pernah mengotak-atik penyimpanan eksternal seperti HDD, Flash Disk, maupun SSD. Jika anda pernah melakukanya pasti anda sudah tidak asing lagi dengan istilah **Sector**. Apa itu sector?
 
-  1.1 [BESRD](https://www.dicoding.com/academies/123)
+![Disk Sector](https://ik.imagekit.io/uvma3bkbp/Proyek_Baru_rlY9BpZHt.png?ik-sdk-version=javascript-1.4.3&updatedAt=1658722224720 'Disk Sector')
 
-2. [Belajar Membuat Frontend Untuk Web Untuk Pemula](https://www.dicoding.com/academies/315)
+Sector merupakan satuan unit terkecil penyimpanan dalam harddisk, sector memiliki ukuran paling kecil sebesar 512kb dan biasanya ia digunakan untuk pembatas antara satu partisi dengan partisi lainya. Hal ini bisa kita hitung secara logical, misal kita mempunyai flashdisk yang berukuran 8GB maka bisa kita dapatkan ada sekitar 8GB / 512kb yaitu 1,5 milyar sector yang bisa kita pakai. Jika kita berbicara mengenai sector maka ujung-ujungnya kita juga akan bicara tentang track, platter, dan cluster. Istilah tersebut merupakan nama unit secara **fisik** dimana untuk mempelajarinya kita harus membongkar dan melihat langsung kedalam piringan harddisk.
 
-3. [Belajar Fundamental Frontend Web Development](https://www.dicoding.com/academies/163)
+Oke sampai saat ini kita hanya perlu mengetahui bahwa sector merupakan satuan unit kecil sebesar 512kb yang dibagai secara fisik oleh si **pembuat harddisknya**, nah sekarang pertanyaanya, apa kaitanya sector dengan MBR? oke mari kita bahas.
+
+
 
