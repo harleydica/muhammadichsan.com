@@ -31,9 +31,11 @@ Sector merupakan satuan unit terkecil penyimpanan dalam harddisk, sector memilik
 
 Jika kita berbicara mengenai sector maka ujung-ujungnya kita juga akan bicara tentang track, platter, dan cluster. Istilah tersebut merupakan nama unit secara **fisik** dimana untuk mempelajarinya kita harus membongkar dan melihat langsung kedalam piringan harddisk.
 
-Anda bisa melihat detail sector, cluster, dan jumlah byte dalam 1 sector dalam suatu disk menggunakan perintah dibawah ini (windwows).
+Anda bisa melihat detail sector, cluster, dan jumlah byte dalam 1 sector dalam suatu disk menggunakan perintah dibawah ini (windows).
 
-
+```bash
+fsutil fsinfo ntfsinfo c:
+```
 
 Oke sampai saat ini kita hanya perlu mengetahui bahwa sector merupakan satuan unit kecil sebesar 512kb yang dibagai secara fisik oleh si **pembuat harddisknya**, nah sekarang pertanyaanya. 
 
@@ -46,6 +48,10 @@ Jadi MBR atau Master Boot Record merupakan nama untuk sector **pertama** dari se
 Gambar di atas merupakan contoh dari salah satu sector flashdisk yang bisa kita lihat isinya dengan software **wxHexEditor**, saat kita membeli disk yang baru atau kita menghapus semua partisi maka isi dari sector pertama ini akan menjadi kosong. Begitu juga jika kita sudah membuat partisi namun kita isi ulang sector pertama dari disk (cara akan dijelaskan nanti) dengan nilai 0 semua, hal ini akan menyebabkan semua partisi kita akan hilang.
 
 Mengapa begitu? oke kita lanjut.
+
+## Cara kerja MBR
+
+
 
 
 
