@@ -43,7 +43,7 @@ Apa kaitanya sector dengan MBR ❓
 
 Jadi MBR atau Master Boot Record merupakan nama untuk sector **pertama** dari sebuah disk, apakah benar pertama? yap MBR terletak di sector pertama yang bisa kita sebut sebagai **boot sector**, dinamakan boot sector karena sector ini biasanya digunakan untuk meletakkan program bootloader, entah itu GRUB atau UEFI. 
 
-![Sector Pertama](https://ik.imagekit.io/uvma3bkbp/hex-editor_Ae4zZTr0u.jpg?ik-sdk-version=javascript-1.4.3&updatedAt=1658723645670 'Sector Pertama')
+![Sector Pertama](https://ik.imagekit.io/uvma3bkbp/Screenshot_from_2022-07-25_18-34-32_RRIKvyXFJ.png?ik-sdk-version=javascript-1.4.3&updatedAt=1658748904759 'Sector Pertama')
 
 Gambar di atas merupakan contoh dari salah satu sector flashdisk yang bisa kita lihat isinya dengan software **wxHexEditor**, saat kita membeli disk yang baru atau kita menghapus semua partisi maka isi dari sector pertama ini akan menjadi kosong. Begitu juga jika kita sudah membuat partisi namun kita isi ulang sector pertama dari disk (cara akan dijelaskan nanti) dengan nilai 0 semua, hal ini akan menyebabkan semua partisi kita akan hilang.
 
@@ -62,6 +62,12 @@ Dari 512 byte yang kita punya tersebut sebenarnya 1 bagian tersebut dibagi menja
 ![Pembagian MBR](https://ik.imagekit.io/uvma3bkbp/Capture_TXtwcK3e2.PNG?ik-sdk-version=javascript-1.4.3&updatedAt=1658727652624 'Pembagian MBR')
 
 > Untuk mengecek secara langsung isi data dari MBR maupun setiap sector anda bisa menggunakan **wxHexEditor**.
+
+**Code area** memiliki area sebesar 446 byte dimana didalamnya biasanya digunakan oleh sistem operasi untuk menyimpan program bootloader nya.
+
+**Tabel Partisi** digunakan untuk menyimpan semua informasi yang berkaitan dengan partisi yang kita buat, ia memiliki kapasitas sebesar 64 bit dan setiap row memiliki 16bit, maka dari itu mengapa di MBR kita hanya bisa membuat 4 primary partisi dikarenakan 64/14 adalah **4**. Untuk segment tabel partisi ini saya akan jelaskan secara detail di bawah 👇
+
+
 
 
 
