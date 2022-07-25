@@ -51,6 +51,18 @@ Mengapa begitu? oke kita lanjut.
 
 ## Cara kerja MBR
 
+MBR (Master Boot Record) berkerja secara virtual di sector pertama dari disk kita, MBR sendiri mempunyai *signature* nya sendiri yang berfungsi sebagai penanda bahwa area sector ini benar-benar merupakan MBR. Penanda untuk MBR adalah dua byte **AA55h** atau `1010101001010101` yang terletak di 2 byte terakhir dari sector pertama, jadi jika ada 2 byte tersebut di akhir dari sector pertama maka dipastikan disk anda menggunakan partisi MBR.
+
+Oke dari 512 byte yang kita punya tersebut sebenarnya 1 bagian tersebut dibagi menjadi 3 bagian lagi, yaitu.
+
+*Code Area
+*Tabel Partisi
+*Signature (AA55h)
+
+![Pembagian MBR](https://ik.imagekit.io/uvma3bkbp/Capture_TXtwcK3e2.PNG?ik-sdk-version=javascript-1.4.3&updatedAt=1658727652624 'Pembagian MBR')
+
+
+
 
 
 
