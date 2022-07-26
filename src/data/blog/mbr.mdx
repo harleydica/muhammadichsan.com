@@ -69,6 +69,18 @@ Dari 512 byte yang kita punya tersebut sebenarnya 1 bagian tersebut dibagi menja
 
 **Tabel Partisi** digunakan untuk menyimpan semua informasi yang berkaitan dengan partisi yang kita buat, ia memiliki kapasitas sebesar 64 bit dan setiap row memiliki 16bit, maka dari itu mengapa di MBR kita hanya bisa membuat 4 primary partisi dikarenakan 64/14 adalah **4**. Untuk segment tabel partisi ini saya akan jelaskan secara detail di bawah 👇
 
+## Tabel Partisi MBR
+
+Bagian kedua dari MBR diisi oleh tabel partisi yang diberi jatah sebesar 64bit, dari 64bit itu dipecah lagi menjadi 4 bagian dimana masing-masing bagian sebesar 16bit dan disinilah detail informasi partisi diletakkan.
+
+Informasi tentang partisi dalam tabel biasa kita sebut dengan *Partition Entry*, setiap bit dari 16it memiliki fungsinya masing-masing, seperti yang dijelaskan oleh tabel dibawah ini.
+
+| Name | Type | Description |
+| ---- | ---- | ----------- |
+| `name` | string | Name of the resource |
+| `path` | string | Path to the resource |
+
+
 
 
 
