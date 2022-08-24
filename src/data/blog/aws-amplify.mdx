@@ -1,0 +1,102 @@
+---
+title: 'AWS Journey #1 : Amplify'
+summary: '.'
+featured: true
+author_name: 'Muhammad Ichsanul Fadhil'
+author_image: 'https://ik.imagekit.io/mlnzyx/tr:w-32,h-32/attachment/profile.webp'
+published: '08/24/2022'
+topics: ['AWS']
+keywords:
+  [
+    'AWS Amplify'
+  ]
+related: []
+---
+
+NASM dan Qemu merupakan 2 software yang tidak bisa dipisahkan satu sama lainya saat kita hendak membuat sebuah aplikasi sistem seperti bootloader, OS, maupun kernel. NASM kita gunakan untuk mengubah kode assembly ke target arsitektur yang kita tentukan dan qemu digunakan untuk memvisualisasi program di tingkat *low-level*.
+
+Kedua software ini sebenarnya dibuat khusus untuk UNIX-system dan tidak bisa digunakan di Windows, namun sejak tahun 2018 para developer NASM pun merilis versi pertama mereka secara open source, begitu juga dengan Qemu sudah tersedia untuk windows sejak tahun 2016.
+
+Oke di artikel kali ini saya akan melakukan instalisasi dan setup NASM dan Qemu yang nantinya kita akan menggunakan keduanya untuk mengcompile game bootloader dan menjalankan di arsitektur x86 secara virtual dengan Qemu. Game bootloader yang akan kita jalankan adalah TetrOS.
+
+Tidak perlu banyak basa-basi mari kita ke pembahasanya 😉
+
+## Sekilas tentang TetrOS 🎮
+
+![TetrOS OS](https://ik.imagekit.io/uvma3bkbp/brave_PJAxrPZCHj_Jv1nYzrZW.png?ik-sdk-version=javascript-1.4.3&updatedAt=1658495424776 'TetrOS OS')
+
+**TetrOS** merupakan sebuah game bootloader atau bisa dibilang mini OS yang dibuat dengan 100% menggunakan bahasa assembly di arsitektur x86. Game ini berjalan secara bare metal yang artinya tidak ada lapisan apapun selain hardware fisik dalam penjalananya, yap BIOS juga termasuk hardware fisik ya 😅
+
+Game ini bisa berjalan dengan baik karena ia menggunakan BIOS interupt call dan ia berjalan di real mode CPU. Seperti namanya yaitu "Game Bootloader" maka game ini dibatasi ukuran file nya sebesar 510kb (-signature) dan programnya disimpan di bootsector dari penyimpanan eksternal seperti HDD maupun flashdisk.
+
+Kunjungi [TetrOS](https://github.com/daniel-e/tetros)
+
+## Install dan Setup NASM di Windows
+
+Ada 2 cara yang bisa anda gunakan untuk menginstall NASM di windows, yaitu dengan WinGet atau mendownload secara langsung. Jika anda sudah menginstall winget maka silahkan ikuti langkah-langkah dibawah ini.
+
+Install library NASM menggunakan winget dengan flag -i jika anda ingin melihat proses downloadnya.
+
+```bash
+winget install nasm -i
+```
+
+Setting konfigurasi PATH windows agar kita bisa mengeksekusi file executable nya dari direktori manapun.
+
+```bash
+$Env:PATH += ";C:\Program Files\NASM"
+```
+
+Verifikasi jika NASM sudah terinstall.
+
+```bash
+nasm --version
+```
+Jika anda tidak mempunyai winget maka sebagai gantinya anda bisa menginstallnya menggunakan [NASM installer x64](https://www.nasm.us/pub/nasm/releasebuilds/2.14.02/win64/). Jalankan program tersebut dan konfigurasi dengan default saja dan jika sudah jangan lupa untuk mengatur konfigurasi path nya 😗
+
+## Install dan Setup Qemu di Windows
+
+Proses penginstallan Qemu di windows sebenarnya sama saja dengan NASM, silahkan kunjungi halaman download [Qemu w64 64bit](https://qemu.weilnetz.de/w64/2022/).
+
+Jalankan file executable yang telah anda download tersebut lalu konfigurasi secara default saja. Jika sudah lakukan konfigurasi path dengan perintah dibawah ini.
+
+```bash
+$Env:PATH += ";C:\Program Files\qemu"
+```
+
+Verifikasi jika qemu sudah berhasil diinstall.
+
+```bash
+qemu-system-i386 -h
+```
+
+## Menjalankan TetrOS dengan NASM dan Qemu
+
+Pastikan anda sudah mendownload file TetrOS melalui link github yang sudah saya bagikan di atas, di dalam folder tersebut ada file **Makefile** yang bisa anda jalankan dengan perintah **make run** dan ada juga file assembly native dan image. Untuk kali ini saya akan menggunakan metode manual saja yaitu dengan build manual agar kita bisa memanfaatkan kedua software tadi (NASM & Qemu).
+
+Silahkan anda masuk ke direktori folder dari TetrOS dan jalankan perintah dibawah ini untuk mengcompile kode assembly native ke file binary,
+
+```bash
+nasm -f bin tetros.asm -o tetros.bin
+```
+
+Perintah tersebut akan mengubah kode assembly kita yang berisi kumpulan perintah menjadi file binary asli yang nantinya akan di ambil BIOS dan dijalankan oleh CPU. BIOS yang dipakai oleh Qemu yaitu **SeaBIOS** secara default menggunakan metode **Legacy** untuk prosess booting, karena metode legacy menggunakan partisi MBR maka kapasitas file bootloader juga dibatasi sebesar 512kb dan file binary tetros pun harus memenuhi syarat tersebut (cek gambar di bawah).
+
+![File Size TetrOS](https://ik.imagekit.io/uvma3bkbp/powershell_6QMsvIQeTW_QO2uJsAg6.png?ik-sdk-version=javascript-1.4.3&updatedAt=1658538557718 'File Size TetrOS')
+
+Untuk memahami lebih lanjut mengenai maksud dari hubungan antara legacy bios dan MBR anda bisa membaca artikel saya ini [MBR (Master Boot Record) dan Kaitanya dengan Legacy BIOS](https://muhammadichsan.com/blog/mbr-dan-legacy-bios).
+
+### Jalankan TetrOS 🎠
+
+File binary sudah kita dapatkan dan kita bisa muat file tersebut ke memori disk virtual agar nantinya program kita tersebut bisa ditemukan oleh BIOS. Disini sebagai contoh saya akan menggunakan floopy disk sebagai memorinya, kita bisa menggunakan option flag `-fda tetros.bon` untuk memasukkan file tersebut ke bootsector floopy.
+
+File TetrOS sudah ada di bootsector floopy selanjunya saatnya kita menjalan virtual machine menggunakan qemu, silahkan jalankan perintah dibawah ini.
+
+```bash
+qemu-system-i386 -fda tetros.bin
+```
+
+Kenapa saya memakai arsitektur i386? bukan x86_64? yap sebenarnya kita bisa saja menjalankan program ini di dua arsitektur itu, karena intel sendiri sudah mendukung *backward compatibility* maka saya rasa itu tidak akan menjadi masalah 😀
+
+Jika berhasil maka nanti akan muncul sebuah popup window dari qemu yang menandakan program bootloader kita sudah berhasil dimuat oleh bios dan berhasil dijalankan dengan lancar oleh (virtual) CPU milik qemu.
+
