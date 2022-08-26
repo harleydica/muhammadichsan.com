@@ -16,7 +16,11 @@ const ALBUMS: Albums = [
   {
     title: '1st Place in BDA Programming Competition at National Level - Muhammad Ichsanul Fadhil',
     src: `https://ik.imagekit.io/uvma3bkbp/lomba_bda_panggung_cpZu8UWgh.jpg`
-  }
+  },
+  {
+    title: '3rd Place FIKSI (Indonesian Student Innovation and Entrepreneurship Festival) at Provincial Level ',
+    src: `https://ik.imagekit.io/uvma3bkbp/WhatsApp_Image_2022-08-26_at_10.01.23_lpbzUyLvy.jpeg`
+  },
 ]
 
 export default ALBUMS
