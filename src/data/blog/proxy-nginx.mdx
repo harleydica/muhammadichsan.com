@@ -50,7 +50,7 @@ Sebuah server yang bertindak sebagai fordward proxy nantinya akan memiliki banya
 
 Sebagai contoh mari kita membuat HTTP proxy menggunakan Nginx.
 
-```WASM
+```NGINX
 # /etc/nginx/sites-enabled/default
 
 server{
@@ -95,7 +95,7 @@ request({
 })
 ```
 
-Jika anda melakukan curl ke web yang dituju nanti request anda akan dialihkan ke your-ip port 8888 oleh fordward proxy nginx 😃
+Jika anda melakukan curl ke web yang dituju nanti **request** anda akan masuk ke your-ip port 8888 dan dialihkan ke http://192.168.1.9:80 😃
 
 
 
