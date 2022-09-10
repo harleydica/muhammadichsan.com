@@ -51,6 +51,10 @@ const Pre = ({ children, className }: PreProps) => {
           {className?.replace('language-', '').toUpperCase()  === 'WASM' &&
             'ASSEMBLY'
           }
+
+          {className?.replace('language-', '').toUpperCase()  === 'CONF' &&
+            'CONFIGURATION'
+          }
         </div>
       </div>
 
