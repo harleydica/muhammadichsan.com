@@ -32,15 +32,25 @@ Ada banyak proxy server yang gratis dan bisa kita gunakan secara mudah, contoh b
 
 Semua list server tersebut bisa kita gunakan ke PC kita maupun network yang nantinya akan bertindak sebagai penengah dari request maupun response yang datang entah itu (HTTP & HTTPS). Server tersebut akan melihat request & response yang masuk kemudian ia akan melakukan sebuah pengecekan ke config yang telah ditetapkan dan akan memutuskan untuk melanjutkan atau mengehentikan packet yang datang.
 
-## Fordward vs Reserve
+## Fordward vs Reverse
 
 Jika kita melihat arah dari packet dari proxy server maka bisa kita simpulkan ada dua arah yaitu dari kanan (server to client) dan kiri (client to server).
 
 ![Fordward & Reverse Proxy](https://ik.imagekit.io/uvma3bkbp/New_Project_ZdzmAxg8g.png?ik-sdk-version=javascript-1.4.3&updatedAt=1662723389850 'Fordward & Reverse Proxy')
 
-Sebuah server yang **mengelola** paket dari arah client (dalam ke luar) disebut sebagai **Fordward Proxy** dan server yang **mengelola** paket dari client (luar ke dalam) disebut sebagai **Reverse Proxy**. Jika dijelaskan dari arahnya memang agak memusingkan, tetapi poin yang perlu diingat bahwa **Forward** akan mengecek paket dari client yang menuju ke server, dan **Reverse** akan mengecek paket dari client yang menuju ke server.
+Sebuah server yang **mengelola** paket dari arah client (dalam ke luar) disebut sebagai **Fordward Proxy** dan server yang **mengelola** paket dari client (luar ke dalam) disebut sebagai **Reverse Proxy**. Jika dijelaskan dari arahnya memang agak memusingkan, tetapi poin yang perlu diingat bahwa **Forward** akan mengecek paket dari client, dan **Reverse** akan mengecek paket dari client yang menuju ke server.
 
 Mungkin sampai disini kita masih bingung dengan konsepnya 😵, maka dari itu mari kita bahas satu per satu secara mendalam, lets go 🚀
+
+### Fordward Proxy
+
+Forward proxy merupakan server yang memiliki kemampuan untuk **mengolah** paket apapun yang datang dari client dan akan menuju ke internet. Contoh kecil dari fordward proxy adalah pemblokiran situs ilegal, mungkin anda pernah berada di suatu network yang tidak bisa mengakses website tertentu namun di network lainya kita bisa mengaksesnya. Selain dari firewall router, fordward proxy juga sering dipakai untuk melakukan hal ini.
+
+Sebuah server yang bertindak sebagai fordward proxy nantinya akan memiliki banyak kemampuan, seperti *caching*, *Anonymous Network*, logging dan pemblokiran trafik.
+
+Sebagai contoh mari kita membuat HTTP proxy menggunakan Nginx.
+
+
 
 
 
