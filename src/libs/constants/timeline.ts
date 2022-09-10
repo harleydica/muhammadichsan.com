@@ -15,7 +15,7 @@ export const timeline: Array<Timeline> = [
     start_date: new Date(2011, 3, 14),
     end_date: new Date(2017, 7, 18),
     description:
-      'While in elementary school I was taught a lot about the religion of Islam, about attitudes, manners and socializing well.'
+      'While in elementary school I was taught a lot about the religion of Islam, attitudes, manners and socializing well.'
   },
   {
     title: 'Secondary School',
@@ -24,7 +24,7 @@ export const timeline: Array<Timeline> = [
     start_date: new Date(2017, 8, 16),
     end_date: new Date(2020, 5, 23),
     description:
-      'In high school I learned about basic sciences such as science, English, and mathematics. For the past 1 year I have been studying online completely and I have used it to find my passion for the future by learning new things.'
+      'In high school I learned about basic knowledge such as science, english, and mathematics. For the past 1 year I have been studying online completely and I have used it to find my passion for the future by learning new things.'
   },
   {
     title: 'High School',

@@ -77,7 +77,25 @@ server{
 }
 ```
 
-Konfigurasi tersebut akan menangkap semua HTTP request yang masuk ke port 8888 dan path /proxy kemudian ia akan meneruskan requestnya ke ip **192.168.1.9** di port 80 menggunakan fungsi **proxy_pass**. Jadi setiap client yang menggunakan HTTP proxy  
+Konfigurasi tersebut akan menangkap semua HTTP request yang masuk ke port 8888 dan path /proxy kemudian ia akan meneruskan requestnya ke ip **192.168.1.9** di port 80 menggunakan fungsi **proxy_pass**. Jadi setiap client yang menggunakan HTTP proxy tersebut akan dialihkan ke url *proxy_pass* setiap melakukan HTTP request.
+
+Mari kita coba tes.
+
+```js
+const request = require('request');
+
+request({
+    'url':'http://muhammadichsan.com/',
+    'method': "GET",
+    'proxy':'http://your-ip:8888'
+},function (error, response, body) {
+    if (!error && response.statusCode == 200) {
+        console.log(body);
+    }
+})
+```
+
+Jika anda melakukan curl ke web yang dituju nanti request anda akan dialihkan ke your-ip port 8888 oleh fordward proxy nginx 😃
 
 
 
