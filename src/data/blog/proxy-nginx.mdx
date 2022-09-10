@@ -51,8 +51,30 @@ Sebuah server yang bertindak sebagai fordward proxy nantinya akan memiliki banya
 Sebagai contoh mari kita membuat HTTP proxy menggunakan Nginx.
 
 ```CONF
-sasas
-sasas
+# /etc/nginx/sites-enabled/default
+
+server{
+  listen 80 default_server;
+  listen [::]:80 default_server;
+
+  root /var/www/html;
+
+  index index.html;
+
+  server_name _;
+
+  location / {
+    try_files $uri $uri/ =404;
+  }
+
+  listen 8888;
+
+  location /proxy {
+    resolver 8.8.8.8;
+
+    proxy_pass http://192.168.1.9:80;
+  }
+}
 ```
 
 
