@@ -109,14 +109,16 @@ Disini saya tidak akan bicara panjang lebar mengenai caching karena pasti anda s
 Oke untuk membuat agar Nginx bisa melakukan content caching maka kita membutuhkan 2 konfigurasi  [**http_proxy_path**](https://nginx.org/en/docs/http/ngx_http_proxy_module.html?&_ga=2.187456161.865798833.1662954449-150084167.1662954449#proxy_cache_path) dan  [**http_proxy**](https://nginx.org/en/docs/http/ngx_http_proxy_module.html?&_ga=2.157528499.865798833.1662954449-150084167.1662954449#proxy_cache). Proxy cache path digunakan untuk mengkonfigurasi letak folder untuk semua file cached kita dan proxy cache digunakan untuk mengaktifkanya. Sebagai contoh anda bisa melihat konfigurasi di bawah.
 
  ```NGINX
- proxy_cache_path /var/www/nginx_cache levels=1:2 keys_zone=my_cache:10m max_size=10g 
+http {
+    proxy_cache_path /var/www/nginx_cache levels=1:2 keys_zone=my_cache:10m max_size=10g 
                  inactive=60m use_temp_path=off;
 
-server {
-    # ...
-    location / {
+    server {
         proxy_cache my_cache;
-        proxy_pass http://your-ip;
+
+        location / {
+          proxy_pass http://your-ip;
+        }
     }
 }
  ```
@@ -124,10 +126,27 @@ server {
 Konfigurasi proxy_cache_path memiliki beberapa parameter yang bisa kita sesuaikan, yaitu.
 
 * lokasi cache content di **/var/www/html**
-* levels untuk subfolder file caching, karena sebuah file akan lambat di akses jika berada dengan banyak file lainya di dalam 1 folder yang sama. 
-* inactive mendefinisikan lama waktu dari sebuah file cached dimana jika file tersebut tidak di akses selama periode inactive maka file tersebut akan otomatis dihapus.
-* max_size digunakan untuk menetapkan ukuran folder secara maksimum, dalam kasus di atas saya menetapkan sebesar 10 gb.
-* keys_zone berfungsi untuk mengkonfigurasi file untuk menyimpan keys (mewakiliki setiap response), 1m dapat menampung keys identification sebanyak 8000.
+* **levels** untuk subfolder file caching, karena sebuah file akan lambat di akses jika berada dengan banyak file lainya di dalam 1 folder yang sama. 
+* **inactive** mendefinisikan lama waktu dari sebuah file cached dimana jika file tersebut tidak di akses selama periode inactive maka file tersebut akan otomatis dihapus.
+* **max_size** digunakan untuk menetapkan ukuran folder secara maksimum, dalam kasus di atas saya menetapkan sebesar 10 gb.
+* **keys_zone** berfungsi untuk mengkonfigurasi file untuk menyimpan keys (mewakili setiap response), 1m dapat menampung keys identification sebanyak 8000.
+
+## Reverse Proxy
+
+Selanjutnya ada **Reverse Proxy**, ini merupakan fitur andalan Nginx yang membuatnya terkenal. Kalau fordward digunakan untuk anonymous network, caching, dan blocking maka reverse proxy memiliki kegunaan yang berbeda, reverse proxy bisa kita gunakan untuk sebagai berikut.
+
+* Menghemat IP Public
+* Menyembunyikan IP Server
+* Load balancing
+* Security (firewall request sebelum ke server)
+
+Mungkin yang paling menarik disini adalah **load balancing**, yap karena metode ini pasti sudah tidak asing lagi di telinga anda. Load balancing nanti insyallah akan saya bahas di artikel sendiri ya hehe 😁
+
+Kalau kita bicara reverse proxy maka kita disini sudah jarang membahas dari sisi client, yang kita bahas atau benefit yang akan kita dapatkan saat ini akan berpengaruh di sisi server.. Loh mengapa? mari kita lihat gambar di bawah ini.
+
+Gambar tersebut berisikan banyak server dimana di setiap server mempunyai servicenya masing-masing, ya bisa kita bisa bilang website saja ya. 
+
+Oke mari kita buat skenario, disini saya mempunyai server dimana di dalamnya terdapat banyak service web yang berjalan seperti laravel, codeigniter, vuejs, maupun reactjs yang berjalan di port nya masing-masing dan saya ingin membuat mereka agar memiliki url path nya masing-masing, sekarang bagaimana caranya? yap mari kita lihat konfigurasi di bawah.
 
 
 
