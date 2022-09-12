@@ -101,10 +101,29 @@ Jika anda melakukan curl ke web yang dituju nanti **request** anda akan masuk ke
 
 Seperti yang saya katakan sebelumnya bahwa dengan fordward proxy server kita bisa bertindak sebagai beberapa peran sekaligus, di atas kita sudah mencoba menggunakanya untuk HTTP proxy yang akan memfilter http request yang datang dan menjalankan aksi yang ditentukan. Nah ada satu hal hebat lagi yang bisa dilakukan oleh Fordward Proxy Server yaitu ***caching***.
 
-Apa itu *caching*?
+Disini saya tidak akan bicara panjang lebar mengenai caching karena pasti anda sudah tau hehe, tapi jika anda belum tahu semoga gambar di bawah ini bisa menjelaskanya.
 
 ![Caching with Nginx](https://ik.imagekit.io/uvma3bkbp/New_Project_1__dvOyxXBZA.png?ik-sdk-version=javascript-1.4.3&updatedAt=1662815118277
  'Caching with Nginx')
+
+Oke untuk membuat agar Nginx bisa melakukan content caching maka kita membutuhkan 2 konfigurasi  [**http_proxy_path**](https://nginx.org/en/docs/http/ngx_http_proxy_module.html?&_ga=2.187456161.865798833.1662954449-150084167.1662954449#proxy_cache_path) dan  [**http_proxy**](https://nginx.org/en/docs/http/ngx_http_proxy_module.html?&_ga=2.157528499.865798833.1662954449-150084167.1662954449#proxy_cache). Proxy cache path digunakan untuk mengkonfigurasi letak folder untuk semua file cached kita dan proxy cache digunakan untuk mengaktifkanya. Sebagai contoh anda bisa melihat konfigurasi di bawah.
+
+ ```NGINX
+ proxy_cache_path /var/www/nginx_cache levels=1:2 keys_zone=my_cache:10m max_size=10g 
+                 inactive=60m use_temp_path=off;
+
+server {
+    # ...
+    location / {
+        proxy_cache my_cache;
+        proxy_pass http://your-ip;
+    }
+}
+ ```
+
+ Konfigurasi proxy_cache_path memiliki beberapa parameter yang bisa kita sesuaikan, yaitu.
+
+
 
 
 
