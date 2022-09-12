@@ -121,9 +121,13 @@ server {
 }
  ```
 
- Konfigurasi proxy_cache_path memiliki beberapa parameter yang bisa kita sesuaikan, yaitu.
+Konfigurasi proxy_cache_path memiliki beberapa parameter yang bisa kita sesuaikan, yaitu.
 
-
+* lokasi cache content di **/var/www/html**
+* levels untuk subfolder file caching, karena sebuah file akan lambat di akses jika berada dengan banyak file lainya di dalam 1 folder yang sama. 
+* inactive mendefinisikan lama waktu dari sebuah file cached dimana jika file tersebut tidak di akses selama periode inactive maka file tersebut akan otomatis dihapus.
+* max_size digunakan untuk menetapkan ukuran folder secara maksimum, dalam kasus di atas saya menetapkan sebesar 10 gb.
+* keys_zone berfungsi untuk mengkonfigurasi file untuk menyimpan keys (mewakiliki setiap response), 1m dapat menampung keys identification sebanyak 8000.
 
 
 
