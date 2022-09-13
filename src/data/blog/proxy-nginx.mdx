@@ -150,6 +150,25 @@ Gambar tersebut berisikan banyak server dimana di setiap server mempunyai servic
 
 Oke mari kita buat skenario, disini saya mempunyai server dimana di dalamnya terdapat banyak service web yang berjalan seperti laravel, codeigniter, vuejs, maupun reactjs yang berjalan di port nya masing-masing dan saya ingin membuat mereka agar memiliki url path nya masing-masing, sekarang bagaimana caranya? yap mari kita lihat konfigurasi di bawah.
 
+```NGINX
+# /etc/nginx/sites-enabled/default
+
+location / {
+    # laravel
+    proxy_pass http://your-ip/laravel/;
+}
+
+location ~* /admin {
+    # vuejs
+    proxy_pass http://your-ip/vuejs/;
+}
+```
+
+Konfigurasi di atas akan mengoper request dari client yang semulanya ke http://my-ip-public menjadi ke service yang berjalan sesuai dengan proxy_pass yang kita definisikan. Sebagai contoh disitu saya mendefinisikan path / ke service ip yang di tangani oleh laravel, dan path /admin ditangani oleh vuejs. IP proxy pass yang bisa kita pakai bisa dari sesama network, beda network, dan dengan domain.
+
+Yap itu dia, simpel bukan?? di artikel selanjutnya saya akan membahas lebih lanjut mengenai **Load Balancing** dimana memang inilah yang menjadi senjata (fungsi) utama dari server yang bertindak sebagai reverse proxy 😆.
+
+
 
 
 
