@@ -15,13 +15,8 @@ export default class CustomDocument extends Document {
           <link rel='icon' href='/favicon.svg' type='svg/x-icon' />
           <link rel='manifest' href='/manifest.json' />
           {process.env.NODE_ENV === 'production' && (
-            <script
-              async
-              defer
-              data-do-not-track='true'
-              data-website-id='6daf05f5-92d2-430f-9cdd-1801014260da'
-              src='https://umami.rizkicitra.dev/umami.js'
-            />
+            <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7434774796949772"
+            crossorigin="anonymous"></script>
           )}
         </Head>
         <body>
