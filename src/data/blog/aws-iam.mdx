@@ -23,5 +23,11 @@ Diambil dari dokumentasi aws sendiri, IAM (Identify Access Management) merupakan
 
 AWS mempunyai 2 tipe autentikasi, yaitu dengan menggunakan **root user** dan **IAM user**. Secara singkat root user adalah akun email yang anda daftarkan pertama kali dengan metode pembayaran, alamat, dan informasi kontak lainya itu semua milik anda. Sementara IAM user merupakan user buatan yang bisa dibuat oleh root user dengan memiliki access yang ditetapkan oleh root user. Hal ini bisa kita lihat jika sebelumnya anda pernah menggunakan aws educate atau academy, dimana dengan akun tersebut anda tidak bisa mengakses semua service dan fitur di dalam akun tersebut, hal ini dikarenakan akun tersebut merupakan IAM user.
 
+Perbedaan kedua tipe akun tersebut bisa kita lihat dari nama akun yang berada di pojok kanan dari akun.
+
+![root user](https://ik.imagekit.io/uvma3bkbp/Screenshot_from_2022-09-21_20-09-32_8Cs15neQ2.png?ik-sdk-version=javascript-1.4.3&updatedAt=1663765864616 'root user')
+
+Akun root akan menampilkan nama anda secara langsung, sementara IAM akun akan ditampilkan dengan format *username@account-id* dimana account-id tersebut diambil dari akun id dari root user.
+
 Oke semoga sampai sini anda sudah bisa memahami sedikit mengenai perbedaan autentikasi tersebut, nah sekarang pertanyaanya bagaimana kita sebagai root user untuk mengelola setiap IAM user yang kita buat? oke mari kita masuk ke inti pembahasanya.
 
