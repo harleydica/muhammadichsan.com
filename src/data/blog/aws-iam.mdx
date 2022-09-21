@@ -17,3 +17,11 @@ Welcome to AWS Journey part pertama, InsyaAllah series ini akan saya buat dengan
 
 Oke di part pertama ini kita akan bahas yang enteng-enteng terlebih dahulu, yap kita mulai dengan salah satu service bernama IAM (Identify Access Management), saya agak ragu sih ini dibilang service hehe karena sebenarnya IAM ini digunakan untuk memproteksi resource di akun kita, pokoknya nanti kita lihat sendiri 😁
 
+## Apa itu IAM ❓
+
+Diambil dari dokumentasi aws sendiri, IAM (Identify Access Management) merupakan sebuah fitur yang disediakan oleh aws diperuntukkan untuk melindungi sumber daya aws anda. Jika kita bicara tentang IAM maka kita juga akan berbicara mengenai *multiuser*, dimana aws sendiri mendukung kita untuk memiliki subakun dari root akun utama kita dan itu disebut sebagai **IAM User**. 
+
+AWS mempunyai 2 tipe autentikasi, yaitu dengan menggunakan **root user** dan **IAM user**. Secara singkat root user adalah akun email yang anda daftarkan pertama kali dengan metode pembayaran, alamat, dan informasi kontak lainya itu semua milik anda. Sementara IAM user merupakan user buatan yang bisa dibuat oleh root user dengan memiliki access yang ditetapkan oleh root user. Hal ini bisa kita lihat jika sebelumnya anda pernah menggunakan aws educate atau academy, dimana dengan akun tersebut anda tidak bisa mengakses semua service dan fitur di dalam akun tersebut, hal ini dikarenakan akun tersebut merupakan IAM user.
+
+Oke semoga sampai sini anda sudah bisa memahami sedikit mengenai perbedaan autentikasi tersebut, nah sekarang pertanyaanya bagaimana kita sebagai root user untuk mengelola setiap IAM user yang kita buat? oke mari kita masuk ke inti pembahasanya.
+
