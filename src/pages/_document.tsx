@@ -16,7 +16,7 @@ export default class CustomDocument extends Document {
           <link rel='manifest' href='/manifest.json' />
           {process.env.NODE_ENV === 'production' && (
             <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-7434774796949772"
-            crossorigin="anonymous"></script>
+            crossOrigin="anonymous"></script>
           )}
         </Head>
         <body>
