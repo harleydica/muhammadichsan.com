@@ -31,3 +31,42 @@ Akun root akan menampilkan nama anda secara langsung, sementara IAM akun akan di
 
 Oke semoga sampai sini anda sudah bisa memahami sedikit mengenai perbedaan autentikasi tersebut, nah sekarang pertanyaanya bagaimana kita sebagai root user untuk mengelola setiap IAM user yang kita buat? oke mari kita masuk ke inti pembahasanya.
 
+## Access Management
+
+AWS IAM memiliki sebuah analogi yang sederhana namun bisa menjelaskan kepada kita mengenai fitur ini, analogi dan penggambaranya bisa kita lihat melalui gambar di bawah ini.
+
+![AWS IAM](https://ik.imagekit.io/uvma3bkbp/iam-how-it-works-diagram.04a2c4e4a1e8848155840676fa97ff2146d19012_QmfHLtOUn.png?ik-sdk-version=javascript-1.4.3&updatedAt=1663849521797 'AWS IAM')
+
+Gambar tersebut menjelaskan ada 3 tahap yang ada dalam IAM, yaitu **Who**, **Can access**, **What**. Sebuah penjelasan yang simpel namun sudah bisa menjelaskan kepada kita mengenai cara kerja dari IAM ini. Di setiap bagan tersebut AWS memecahnya menjadi submenu sendiri, kalau kita lihat di dashboard IAM maka kita akan menemukan beberapa submenu pada menu access management.
+
+* User Groups
+* Users
+* Roles 
+* Policies
+* Identify Providers
+* Account Settings
+
+Keenam submenu tersebut memiliki fungsi dan peranya masing-masing, untuk memhami lebih lanjut mari kita bahas satu per satu 😺
+
+### Users
+
+Users atau user merupakan submenu dari IAM yang memungkinkan kita sebagai root user untuk membuat user-user baru, dimana user yang kita buat tersebut nantinya akan menjadi IAM user.
+
+Mungkin anda akan bertanya-tanya, kenapa kok harus buat user banyak? kenapa gak pakai satu user saja yaitu root user?
+
+Yap pertanyaan tersebut sempat terlintas di pikiran saya saat saya memepelajari service di aws pertama kali, dengan seiiringnya waktu saya mengetahui bahwa kebanyakan perusahaan atau startup yang menggunakan cloud di AWS dia hanya membuat 1 akun saja, menurut saya hal ini dikarenakan oleh beberapa faktor ini.
+
+* Sulitnya membuat akun AWS (walaupun sekarang sudah lebih mudah)
+* Memudahkan dalam pembayaran (bayangkan jika setiap developer/devops/dll mempunyai akunya sendiri)
+* Memudahkan dalam pemantauan sumber daya dan report
+* Menghindari penyalahgunaan sumber daya oleh pegawai di perusahaan
+
+Ya itu masih perkiraan saya saja sih, tetapi benefit yang didapatkan dari adanya IAM user ini kita bisa lebih mudah dalam mengorganisir penggunaan akun dalam suatu organisasi/perusahaan. 
+
+User yang kita buat melalui dashboard tersebut nantinya akan bisa kita gunakan saat login menggunakan option IAM user.
+
+![login as iam user](https://ik.imagekit.io/uvma3bkbp/Screenshot_from_2022-09-22_19-41-21_9rmDBwofJ.png?ik-sdk-version=javascript-1.4.3&updatedAt=1663850514586 'login as iam user')
+
+Masih bingung? oke wajar, selanjutnya mari kita bahas mengenai **Policy** agar anda bisa paham maksud dari semua ini hehe.
+
+### Policy
