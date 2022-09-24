@@ -70,3 +70,23 @@ User yang kita buat melalui dashboard tersebut nantinya akan bisa kita gunakan s
 Masih bingung? oke wajar, selanjutnya mari kita bahas mengenai **Policy** agar anda bisa paham maksud dari semua ini hehe.
 
 ### Policy
+
+Yap selanjutnya ada **Policy** dimana inilah yang menjadi pokok utama dari IAM, dimana kita bisa memberikan hak akses terhadap user IAM yang sudah kita buat sebelumnya untuk mengakses resource yang kita tetapkan. Policy ini mewakilkan proses **Can Access** pada gambar bagan di atas tadi, dan **What** diwakilkan oleh resource atau service di dalam AWS kita.
+
+Sebuah user bisa memiliki 1 atau lebih policy di dalamnya, sehingga dengan itu kita sebagai root user bisa menetapkan user sesuai dengan hak aksesnya yang berkaitan dengan pekerjaan yang diberikan hal ini sangat relate dengan **Role** yang nanti kita akan bahas.
+
+Jika kita melihat di dashboard IAM policy maka disana akan terdapat banyak policy yang sudah dibuat oleh AWS secara default.
+
+![contoh aws policy](https://ik.imagekit.io/uvma3bkbp/Screenshot_from_2022-09-24_07-32-30_mwaBse2ml.png?ik-sdk-version=javascript-1.4.3&updatedAt=1663979926552 'contoh aws policy')
+
+Ada 1 keterangan yang bisa kita pelajari lagi, yaitu Type.
+
+Type, IAM memiliki 3 jenis type policy yaitu.
+
+* AWS Managed
+* Customer Managed
+* Inline Policy
+
+**AWS Managed** merupakan standalone policy yang dibuat dan dikelola oleh AWS. Standalone policy disini memiliki arti bahwa policy tersebut memiliki Amazon Resource Name (ARN) sendiri yang menyertakan nama policy itu sendiri.
+
+> ARN (AWS Resource Name) merupakan suatu penamaan resource di AWS yang digunakan untuk memberi nama pada setiap komponen, service, dan resource pada AWS. ARN memiliki syntax *arn:partition:service:region:account:resource*
