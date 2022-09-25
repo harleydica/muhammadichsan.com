@@ -118,3 +118,9 @@ Dengan users group setiap user tersebut bisa kita masukan kedalam satu grup dima
 ![user group iam](https://ik.imagekit.io/uvma3bkbp/Relationship_Between_Entities_Example.diagram_uKuPkFWlB.png?ik-sdk-version=javascript-1.4.3&updatedAt=1664075167126 'user group iam')
 
 Daripada harus memberikan policy satu per satu ke user yang kita buat maka kita bisa memberikanya hanya ke users group saja, nantinya semua user yang dimasukkan ke users group tersebut akan memiliki permission dan policy yang sama.
+
+### Role
+
+Role atau peran, fitur ini sebenarnya sama saja dengan user atau user di IAM. Role dan IAM sama-sama merupakan identity yang memiliki permission terhadap aws resource, denganya kita menetapkan resource mana yang boleh di akses dan tidak boleh diakses. Perbedaan di antara keduanya ialah jikalau IAM terkait dengan suatu identitas user tertentu yang dikaitkan dengan password atau access key nah sementara itu role tidak menggunakanya.
+
+Role menggunakan session authetication dimana sebuah user yang ingin berperan sesuai role yang dipilih nantinya akan login menggunakan credential seperti token yang memiliki batas waktu yang terbatas. Hal tersebut sangat berbeda dengan IAM user yang menggunakan password dan password tersebut akan tidak berubah selama root user tidak menggantinya.
