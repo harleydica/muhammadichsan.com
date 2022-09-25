@@ -90,3 +90,17 @@ Type, IAM memiliki 3 jenis type policy yaitu.
 **AWS Managed** merupakan standalone policy yang dibuat dan dikelola oleh AWS. Standalone policy disini memiliki arti bahwa policy tersebut memiliki Amazon Resource Name (ARN) sendiri yang menyertakan nama policy itu sendiri.
 
 > ARN (AWS Resource Name) merupakan suatu penamaan resource di AWS yang digunakan untuk memberi nama pada setiap komponen, service, dan resource pada AWS. ARN memiliki syntax *arn:partition:service:region:account:resource*
+
+**Customer Managed**, type policy ini sebenarnya sama saja dengan yang dibuat oleh AWS, perbedaanya mungkin dari nama ARN dan policy nya. Kita akan mendapatkan ARN sesuai user kita sendiri dan hak akses di dalam policy bisa kita isi dengan sesuai kemauan kita.
+
+ARN untuk AWS Managed Policy adalah sebagai berikut.
+
+**arn:aws:iam::aws:policy/aws-service-role/ClientVPNServiceRolePolicy**
+
+Dan ARN untuk Customer Managed.
+
+**arn:aws:iam::213243434:policy/aws-service-role/ClientVPNServiceRolePolicy**
+
+Angka tersebut mewakili id root user.
+
+Type policy ini disediakan oleh AWS agar kita sebagai root user bisa dengan bebas membuat sebuah policy terhadap suatu resource tertentu dengan hak akses yang kita inginkan, selain membuat dari awal kita juga bisa menyalin policy dari AWS Managed lalu melakukan customisasi denganya.
