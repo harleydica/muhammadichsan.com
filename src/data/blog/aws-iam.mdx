@@ -105,10 +105,16 @@ Angka tersebut mewakili id root user.
 
 Type policy ini disediakan oleh AWS agar kita sebagai root user bisa dengan bebas membuat sebuah policy terhadap suatu resource tertentu dengan hak akses yang kita inginkan, selain membuat dari awal kita juga bisa menyalin policy dari AWS Managed lalu melakukan customisasi denganya.
 
-**Inline Policy**, yap yang terakhir ada inline, mungkin dari katanya saja anda sudah tau ya type policy ini kerjanya gimana. Ya tidak ada bedanya sih dari cara kerja dengan yang lainya, namun yang membedakan hanyalah dari cara memberikan policy nya saja ke objek resource. Inline policy adalah type policy yang diberikan ke objek resource (user, users group, role) secara langsung di dashboard setiap objek, sebagai contohnya anda bisa lihat melaluiu gambar di bawah ini.
+**Inline Policy**, yap yang terakhir ada inline, mungkin dari katanya saja anda sudah tau ya type policy ini kerjanya gimana. Ya tidak ada bedanya sih dari cara kerja dengan yang lainya, namun yang membedakan hanyalah dari cara memberikan policy nya saja ke objek resource. Inline policy adalah type policy yang diberikan ke objek resource (user, users group, role) secara langsung di dashboard setiap objek, sebagai contohnya anda bisa lihat melalui gambar di bawah ini.
 
 ![inline policy](https://ik.imagekit.io/uvma3bkbp/Screenshot_from_2022-09-25_09-49-09_9S40hP4xH.png?ik-sdk-version=javascript-1.4.3&updatedAt=1664074390236 'inline policy')
 
-## Users Group
+### Users Group
 
-Jika anda mempunyai banyak developer dengan tugas yang berbeda-beda maka fitur ini akan bermanfaat bagi anda dalam mengelompokkan user developer sesuai tugasnya. Misal kita mempunyai 25 pegawai yang mempunyai tugas yang berbeda satu sama yang lain, ada 4 orang bertindak sebagai devops, 10 orang sebagai IoT dev, dan sisanya mungkin backend. Dengan users group setiap user tersebut bisa kita masukan kedalam satu grup dimana semua user IAM yang berada di dalam satu grup yang sama akan mempunyai permission dan policy yang sama terhadap suatu resource.
+Jika anda mempunyai banyak developer dengan tugas yang berbeda-beda maka fitur ini akan bermanfaat bagi anda dalam mengelompokkan user developer sesuai tugasnya. Misal kita mempunyai 25 pegawai yang mempunyai tugas yang berbeda satu sama yang lain, ada 4 orang bertindak sebagai devops, 10 orang sebagai IoT dev, dan sisanya mungkin backend. 
+
+Dengan users group setiap user tersebut bisa kita masukan kedalam satu grup dimana semua user IAM yang berada di dalam satu grup yang sama akan mempunyai permission dan policy yang sama terhadap suatu resource.
+
+![user group iam](https://ik.imagekit.io/uvma3bkbp/Relationship_Between_Entities_Example.diagram_uKuPkFWlB.png?ik-sdk-version=javascript-1.4.3&updatedAt=1664075167126 'user group iam')
+
+Daripada harus memberikan policy satu per satu ke user yang kita buat maka kita bisa memberikanya hanya ke users group saja, nantinya semua user yang dimasukkan ke users group tersebut akan memiliki permission dan policy yang sama.
