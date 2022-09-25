@@ -13,6 +13,7 @@ keywords:
 related: []
 ---
 
+
 Welcome to AWS Journey part pertama, InsyaAllah series ini akan saya buat dengan bertahap dan diisi dengan beberapa part-part selanjutnya yang nantinya akan membahas service di AWS. Series ini saya buat untuk persiapan saya dalam mengikuti LKS SMK cloud computing yang InsyaAllah akan disenggalarakan pada tahun ini 😀
 
 Oke di part pertama ini kita akan bahas yang enteng-enteng terlebih dahulu, yap kita mulai dengan salah satu service bernama IAM (Identify Access Management), saya agak ragu sih ini dibilang service hehe karena sebenarnya IAM ini digunakan untuk memproteksi resource di akun kita, pokoknya nanti kita lihat sendiri 😁
@@ -121,6 +122,11 @@ Daripada harus memberikan policy satu per satu ke user yang kita buat maka kita 
 
 ### Role
 
-Role atau peran, fitur ini sebenarnya sama saja dengan user atau user di IAM. Role dan IAM sama-sama merupakan identity yang memiliki permission terhadap aws resource, denganya kita menetapkan resource mana yang boleh di akses dan tidak boleh diakses. Perbedaan di antara keduanya ialah jikalau IAM terkait dengan suatu identitas user tertentu yang dikaitkan dengan password atau access key nah sementara itu role tidak menggunakanya.
+Role atau peran, fitur ini sebenarnya sama saja dengan user. Role dan IAM user sama-sama merupakan identity yang memiliki permission terhadap aws resource, denganya kita menetapkan resource mana yang boleh di akses dan tidak boleh diakses oleh suatu entitas. Perbedaan di antara keduanya ialah jikalau IAM terkait dengan suatu identitas user tertentu yang dikaitkan dengan password atau access key nah sementara itu role tidak menggunakanya.
 
 Role menggunakan session authetication dimana sebuah user yang ingin berperan sesuai role yang dipilih nantinya akan login menggunakan credential seperti token yang memiliki batas waktu yang terbatas. Hal tersebut sangat berbeda dengan IAM user yang menggunakan password dan password tersebut akan tidak berubah selama root user tidak menggantinya.
+
+![iam role](https://ik.imagekit.io/uvma3bkbp/Screenshot_from_2022-09-25_11-37-13_j1ZA07kJX.png?ik-sdk-version=javascript-1.4.3&updatedAt=1664080659832 'iam role')
+
+Lantas mengapa ada role? kenapa kita tidak menggunakan user saja? ada beberapa alasan AWS dalam membuat fitur role ini yaitu.
+
