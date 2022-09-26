@@ -128,5 +128,14 @@ Role menggunakan session authetication dimana sebuah user yang ingin berperan se
 
 ![iam role](https://ik.imagekit.io/uvma3bkbp/Screenshot_from_2022-09-25_11-37-13_j1ZA07kJX.png?ik-sdk-version=javascript-1.4.3&updatedAt=1664080659832 'iam role')
 
-Lantas mengapa ada role? kenapa kita tidak menggunakan user saja? ada beberapa alasan AWS dalam membuat fitur role ini yaitu.
+Lantas mengapa ada role? apa perbedaan di antara keduanya? oke kira-kira perbedaanya seperti ini.
+
+* Punya password? User (yes) Role (No)
+* Access key? User (yes) Role (No)
+* Bisa masuk kedalam grup? User (yes) Role (No)
+* Bisa terasosiakan dengan aws resource? User (yes) Role (No)
+
+IAM role memiliki trusted entity yang wajib kita tentukan saat membuatnya pertama kali, ada **Service**, **Account**, **Web Identity**, **SAML 2.0**, dan **Custom trust policy**.
+
+> Trusted entity type digunakan untuk
 
