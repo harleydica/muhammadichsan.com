@@ -137,5 +137,13 @@ Lantas mengapa ada role? apa perbedaan di antara keduanya? oke kira-kira perbeda
 
 IAM role memiliki trusted entity yang wajib kita tentukan saat membuatnya pertama kali, ada **Service**, **Account**, **Web Identity**, **SAML 2.0**, dan **Custom trust policy**.
 
-> Trusted entity type digunakan untuk
+Type trusted entity merupakan objek dari luar akun AWS anda yang diizinkan untuk mendapatkan akses ke resource AWS yang ditentukan oleh policy.
 
+Sebagai contoh jika anda memilih trusted entity adalah account, maka denganya anda bisa menambahkan root user account lain agar berperan sebaga role yang anda buat. Hal ini akan berguna jika anda mempunyai banyak root account yang ingin mengakses ke resource yang sama dalam 1 akun. Hal ini seirama dengan use case yang sering digunakan menurut dari dokumentasi AWS.
+
+* 1 account aws diakses oleh account lainya
+* Membatasi/memberikan akses kepada suatu service dalam mengakses service lainya
+* Third-party web yang membutuhkan akses 
+* Autentikasi dengan SAML2.0 federation
+
+Terakhir ada **identify providers** yang bisa kita gunakan untuk mengkonfigurasi 
