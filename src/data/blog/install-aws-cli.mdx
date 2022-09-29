@@ -52,8 +52,43 @@ Sebelum menginstall di linux anda harus terlebih dahulu sudah mempunyai tool zip
 **Linux x86 (64-bit)**
 
 ```bash
-cd /home/ichsan/downloads
-curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
-unzip awscliv2.zip
-sudo ./aws/install
+$ cd /home/ichsan/downloads
+$ curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+$ unzip awscliv2.zip
+$ cd awscliv2
+$ sudo ./aws/install
 ```
+
+**Linux ARM**
+
+```bash
+$ cd /home/ichsan/downloads
+$ curl "https://awscli.amazonaws.com/awscli-exe-linux-aarch64.zip" -o "awscliv2.zip"
+$ unzip awscliv2.zip
+$ cd awscliv2
+$ sudo ./aws/install
+```
+
+Verifikasi jika AWS CLI sudah berhasil terinstall di linux anda.
+
+```bash
+$ aws --version
+aws-cli/2.7.24 Python/3.8.8 Linux/4.14.133-113.105.amzn2.x86_64 botocore/2.4.5
+```
+
+### Windows
+
+Anda bisa memanfaatkan msiexec untuk mendownload file exe dari AWS CLI.
+
+```bash
+C:\> msiexec.exe /i https://awscli.amazonaws.com/AWSCLIV2.msi
+```
+
+Tunggu beberapa saat hingga proses instalisasi dan pemasanganya selesai, jika sudah anda bisa verifikasi dengan cara di atas tadi.
+
+## Konfigurasi AWS CLI
+
+
+
+
+
