@@ -41,3 +41,19 @@ Jika anda ingin berperan penuh terhadap resource di AWS CLI sebagai gantinya and
 * Pilih create access key
 * Download atau salin secret access key
 
+## Install AWS CLI
+
+Oke sampai ini kita sudah mendapatkan access token dan secret access key, keduanya nanti akan kita kirimkan ke API aws si setiap request yang kita buat dari command yang kita jalankan. Selanjutnya kita bisa menginstall AWS CLI nya sesuai dengan OS yang anda gunakan.
+
+### Linux
+
+Sebelum menginstall di linux anda harus terlebih dahulu sudah mempunyai tool zip/unzip dan beberapa library seperti glibc, groff, dan less yang sudah ada di sebagian besar distro linux pada saat ini.
+
+**Linux x86 (64-bit)**
+
+```bash
+cd /home/ichsan/downloads
+curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install
+```
