@@ -97,7 +97,7 @@ Oke secara garis besar ada beberapa hal yang wajib kita konfigurasi, yaitu.
 * Default region name = mengidentifikasi region yang servernya ingin anda kirimi permintaan untuk secara default
 * Output format = jenis output secara default yang anda inginkan saat menjalankan command, saat ini tersedia dalam json, yaml, text. dan table
 
-Oke silahkan jalankan command **aws configure** dan isikan prompt dengan sesuai data yang diminta.
+Silahkan jalankan command **aws configure** dan isikan prompt dengan sesuai data yang diminta.
 
 ```bash
 $ aws configure
@@ -107,3 +107,16 @@ Default region name [None]: us-west-2
 Default output format [None]: json
 ```
 
+Konfigurasi diatas akan menetapkan user dengan access key id tersebut menjadi default user pada AWS CLI, yang berarti setiap command yang anda jalankan seperti contoh **aws s3 list-buckets** akan mengambil resource dan menggunakan permission dari akun tersebut.
+
+Jika anda ingin login dengan banyak user dalam satu pc (multiuser) anda bisa membuat profile baru dengan menambahkan flag **--profile** pada command aws configure, contoh nya seperti di bawah ini.
+
+```bash
+aws configure --profile contoh_iam_username
+```
+
+Dan untuk menggunakan profile/akun yang telah dibuat sebelumnya maka kita juga bisa lakukan sama seperti configure tadi yaitu dengan menambahkan flag --profile di akhir command yang kita inginkan. Misalnya saya ingin melihat list object yang ada di s3 akun saya maka bisa menggunakan command di bawah ini.
+
+```bash
+aws s3 list-objects --profile contoh_iam_username
+```
