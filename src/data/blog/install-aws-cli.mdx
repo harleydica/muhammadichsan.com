@@ -88,7 +88,22 @@ Tunggu beberapa saat hingga proses instalisasi dan pemasanganya selesai, jika su
 
 ## Konfigurasi AWS CLI
 
+Sebelum bisa menjalankan command yang tersedia di AWS CLI kita harus terlebih dahulu mengkonfigurasinya, kita akan memanfaatkan command **aws configure** dalam proses konfigurasi ini. Command tersebut merupakan sebuah perintah interface yang nantinya akan mengubah file config yang bisa dilihat di folder **~/.aws** untuk linux.
 
+Oke secara garis besar ada beberapa hal yang wajib kita konfigurasi, yaitu.
 
+* AWS access key id
+* AWS access secret key
+* Default region name = mengidentifikasi region yang servernya ingin anda kirimi permintaan untuk secara default
+* Output format = jenis output secara default yang anda inginkan saat menjalankan command, saat ini tersedia dalam json, yaml, text. dan table
 
+Oke silahkan jalankan command **aws configure** dan isikan prompt dengan sesuai data yang diminta.
+
+```bash
+$ aws configure
+AWS Access Key ID [None]: AKIAIOSFODNN7EXAMPLE
+AWS Secret Access Key [None]: wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY
+Default region name [None]: us-west-2
+Default output format [None]: json
+```
 
