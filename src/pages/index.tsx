@@ -44,13 +44,13 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
       />
 
       <Section
-        title='Featured Post'
+        title='Featured Article'
         gridCols='grid-cols-1 md:grid-cols-2'
         data={blogs}
         Component={BlogCard}
         link={{
           to: '/blog',
-          children: 'See all post'
+          children: 'See all article'
         }}
       />
 
