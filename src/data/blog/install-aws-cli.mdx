@@ -16,3 +16,28 @@ AWS kali ini sudah memiliki 2 interface yang bisa digunakan untuk mengakses dan 
 
 Jika sebelumnya anda menggunakan windows sebagai based work maka saya sarankan untuk tetap menggunakan AWS console yang berbasis GUI, dan jika anda sering menggunakan linux saya sarankan anda untuk menggunakan aws cli. Ya kembali lagi dengan sesuai pilihan anda, karena saya sering menggunakan terminal maka dari itu dalam penggunaan sehari-hari saya tetap memilih AWS CLI 😁
 
+## Konfigurasi Access Token
+
+Untuk menjalankan setiap command yang ada di AWS CLI maka kita membutuhkan sebuah access token yang bisa diambil dari IAM maupun Access Credential di setiap akunya. Layaknya username dan password, di aws sendiri juga menetapkan konsep tersebut untuk autentikasi dari luar yang ingin mengakses resource pada sebuah akun. Di aws kita mengenalnya dengan sebutan **access key ID** dan **secret access key**.
+
+Untuk menggunakan aws cli sebaiknya kita menggunakan IAM user saja daripada menggunakan root user, hal ini dikarenakan untuk menjaga keamanan dari akun dan saat kita sudah mengkonfigurasi pertama kali maka selanjutnya kita tidak perlu melakukan autentikasi lagi, hal ini akan berbahaya saat laptop atau pc kita di gunakan oleh orang yang tidak bertanggung jawab.
+
+Jika anda ingin berperan penuh terhadap resource di AWS CLI sebagai gantinya anda bisa membuat dan menggunakan IAM yang diberikan access sebagai adminstrator.
+
+**IAM user**
+
+* Login sebagai root
+* Masuk ke IAM dashboard
+* Pilih users
+* Pilih user yang akan digunakan
+* Security credentials
+* Lalu create access key
+
+**Root user**
+
+* Login sebagai root
+* Pilih menu di pojok kanan, lalu pilih My Security Credential
+* Expand menu access key
+* Pilih create access key
+* Download atau salin secret access key
+
