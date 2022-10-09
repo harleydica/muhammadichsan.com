@@ -22,4 +22,26 @@ UDP (User Datagram Protocol) merupakan sebuah protokol atau tata aturan pengirim
 
 Sebenarnya UDP ini bisa kita artikan sebagai sebuah aturan dalam pemformatan packet data yang akan dikirimkan dari pc ke pc lainya baik dalam satu network maupun beda network. Karena ia merupakan sebuah protokol maka aturan dari UDP ini sudah disepakati dan digunakan di semua program dan pc di seluruh dunia.
 
-Tidak ada yang spesial dan rumit dari protokol ini, UDP didesain untuk mekanisme pengiriman packet yang tidak membutuhkan keamanan namun membutuhkan kecepatan. 
+Tidak ada yang spesial dan rumit dari protokol ini, UDP didesain untuk mekanisme pengiriman packet yang tidak membutuhkan keamanan namun membutuhkan kecepatan. Karena protokol ini tidak memerlukan atribut yang aneh-aneh maka ukuran dari packet yang digunakanpun menjadi kecil, karena inilah salah satu faktur mengapa UDP disebut lebih cepat dari TCP.
+
+## UDP Header
+
+Protokol UDP memiliki 2 bagian, yaitu header dan data.
+
+![Struktur Protokol UDP](https://ik.imagekit.io/uvma3bkbp/New_Project_2__Nf8G80vPV.png?ik-sdk-version=javascript-1.4.3&updatedAt=1665319224698 'Struktur Protokol UDP')
+
+Header digunakan untuk meletakkan atribut yang dibutuhkan dalam proses pengiriman data, header di UDP memiliki 4 atribut di dalamnya dimana di setiap atribut menyimpan value sebesar 2 byte. Jadi bisa kita simpulkan bahwa ukuran dari UDP header adalah 8 byte, diambil dari 2 dikali 4 properti.
+
+Di dalam header tersebut terdapat properti sebagai berikut.
+
+* Source Port
+* Destination Port
+* Length Data
+* Checksum
+
+Oke mari kita bahas satu persatu 😀
+
+### Source Port
+
+
+
