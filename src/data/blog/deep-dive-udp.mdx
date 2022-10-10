@@ -53,4 +53,10 @@ Lantas mungkin kita akan bertanya, mengapa perlu mengikutsertakan source port? a
 
 Yap fungsi dari source port disini ialah untuk memberi informasi kepada server jika server mengirim response kembali, bayangkan jika client tidak mengirim source port? yang terjadi ialah server tidak bisa mengirim response ke client dan packetpun tidak bisa ditangani oleh client. Ya memang saat proses pengiriman packet maka client tidak akan terdampak manfaat apapun, namun dengan adanya source port yang dikirim ini nantinya server bisa mengetahui port berapa yang harus ia tuju saat mengirim respons.
 
-> Sistem operasi memiliki limit number port hingga 65532 hal ini diambil dari 2^16 yaitu ukuran 2 byte, port dari 1-1023 disebut sebagai well-known port, dan sisanya merupakan port yang bisa kita sesuka hati
+> Sistem operasi memiliki limit number port hingga 65532 hal ini diambil dari 2^16 yaitu ukuran 2 byte, port dari 1-1023 disebut sebagai well-known port, dan sisanya merupakan port yang bisa kita kustom sesuka hati
+
+### Destination Port
+
+Selanjutnya ada destination port, mungkin sudah tidak asing lagi di telinga anda. Yap destination port digunakan untuk menentukan port berapa yang akan dituju pada server atau client.
+
+Di sisi server yang bertindak mengirim response dia akan mengetahui nilai destination port dari source port packet yang dikirim oleh client, sementara client mengetahui destination port yang dituju biasanya dari aplikasi yang menanganinya hal ini bisa terjadi karena port umum yang disebut sebagai ***well-known port***.
