@@ -43,5 +43,15 @@ Oke mari kita bahas satu persatu 😀
 
 ### Source Port
 
+Properti yang menempati 2 byte pertama dari UDP header digunakan untuk menyimpan nilai angka dari port. 
+
+Seperti yang sudah kita ketahui bahwa dalam protokol TCP maupun UDP mereka menetapkan mekanisme port dalam sebuah penjalanan service, port digunakan layaknya pintu pada kehidupan nyata, hal ini bisa kita bayangkan seperti rumah sakit yang memiliki banyak pintu dimana di masing-masing pintu terdapat layanan yang berbeda-beda.
+
+Dalam sebuah komputer hal ini diterapkan dengan adanya port, ketika ada sebuah packet yang datang dari luar maka sistem operasi akan berkerja pertama kali untuk menangani packet tersebut, os akan melihat destination port lalu mengirim packet tersebut ke proccess yang berjalan untuk port tersebut.
+
+Lantas mungkin kita akan bertanya, mengapa perlu mengikutsertakan source port? apakah ada manfaatnya dari sisi penerima?
+
+
+
 
 
