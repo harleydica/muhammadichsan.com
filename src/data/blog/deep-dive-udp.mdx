@@ -51,6 +51,9 @@ Dalam sebuah komputer hal ini diterapkan dengan adanya port, ketika ada sebuah p
 
 Lantas mungkin kita akan bertanya, mengapa perlu mengikutsertakan source port? apakah ada manfaatnya dari sisi penerima?
 
+Yap fungsi dari source port disini ialah untuk memberi informasi kepada server jika server mengirim response kembali, bayangkan jika client tidak mengirim source port? yang terjadi ialah server tidak bisa mengirim response ke client dan packetpun tidak bisa ditangani oleh client. Ya memang saat proses pengiriman packet maka client tidak akan terdampak manfaat apapun, namun dengan adanya source port yang dikirim ini nantinya server bisa mengetahui port berapa yang harus ia tuju saat mengirim respons.
+
+
 
 
 
