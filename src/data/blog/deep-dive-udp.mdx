@@ -79,21 +79,35 @@ Yap jawabanya karena UDP disini hanya menggunakan checksum untuk *error detectio
 
 Nilai dari checksum bisa kita dapatkan dari penggabungan beberapa byte berikut.
 
-* pseudoheader = sebagian dari IP header
+* Pseudoheader = sebagian dari IP header
 * UDP header
 * Sebagian datagram payload
 
+Masing-masing bagian tersebut diambil 16bit lalu ditambahkan semuanya hingga menghasilkan 16 bit yang utuh, jika terjadi kelebihan maka carry akan di hapus dan ditambahkan ke bit terakhir. Setelah didapatkan 16 bit akhir maka selanjutnya ia akan di *complement* atau dibalik setiap kondisinya seperti di gerbang logika NOT.
+
 Dalam OS yang berbasis UNIX system nilai checksum di ambil dari kode berikut.
 
+Step 1, menambahkan 3 bagian 16 bit dari bagian yang disebutkan di atas.
 ```c
 uint16_t net_checksum_tcpudp(uint16_t length, uint16_t proto,uint8_t *addrs, uint8_t *buf)
 {
     uint32_t sum = 0;
 
-    sum += net_checksum_add(length, buf);         // payload
-    sum += net_checksum_add(8, addrs);            // src + dst address
-    sum += proto + length;                        // protocol & length
+    sum += net_checksum_add(length, buf);    
+    sum += net_checksum_add(8, addrs);           
+    sum += proto + length;                        
     return net_checksum_finish(sum);
+}
+```
+
+Step 2, melakukan *complement* terhadap 16 bit hasil akhir menggunakan operator ~ di bahasa C.
+
+```c
+uint16_t net_checksum_finish(uint32_t sum)
+{
+    while (sum>>16)
+	sum = (sum & 0xFFFF)+(sum >> 16);
+    return ~sum;
 }
 ```
 
