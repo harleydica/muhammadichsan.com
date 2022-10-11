@@ -63,4 +63,12 @@ Di sisi server yang bertindak mengirim response dia akan mengetahui nilai destin
 
 ### Length Data
 
-Dari namanya saja kita sudah mengetahui fungsi dari atribut ini, length = panjang dan data yaitu payload atau kumpulan informasi yang akan kita kirim. Atribut length data berisikan panjang 
+Dari namanya saja kita sudah mengetahui fungsi dari atribut ini, length = panjang dan data yaitu payload atau kumpulan informasi yang akan kita kirim. Atribut length data berisikan panjang dari data yang akan kita kirim. 
+
+Data yang bisa dimasukkan ke dalam 1 packet UDP ialah sebesar 65,527 byte. Ya walaupun jarang sekali dalam satu packet langsung berisikan data dengan sejumlah segitu, biasanya sebuah packet akan dipecah mejadi beberapa bagian kecil, contoh kita akan mengirim data sebesar 1mb nah yang terjadi di belakang sebenarnya ia tidak akan dikirim dalam 1 packet melainkan ia akan dipecah menjadi beberapa bagian kecil lagi.
+
+Hal tersebut terjadi karena adanya MTU (Maximum Transmission Protocol) yaitu sebuah nilai maksimal untuk byte yang bisa dikirimkan oleh local network dalam satu kali pengiriman.
+
+### Checksum
+
+
