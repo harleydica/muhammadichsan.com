@@ -71,4 +71,30 @@ Hal tersebut terjadi karena adanya MTU (Maximum Transmission Protocol) yaitu seb
 
 ### Checksum
 
+Yang terakhir ada checksum, apa fungsi dari checksum? yap fungsinya untuk memastikan bahwa packet yang sampai di sisi server sama dengan packet semula-mula di awal pengiriman di client.
+
+Loh katanya UDP digunakan untuk pengiriman data yang tidak butuh *realibity* mas? lantas mengapa ada mekanisme seperti checksum ini 🙂 ?
+
+Yap jawabanya karena UDP disini hanya menggunakan checksum untuk *error detection* bukan *error recovery*, paham bukan? inilah perbedaan mendasar antara UDP dan TCP. Jika ada error terdeteksi maka UDP tidak melakukan recovery atau pengiriman packet ulang lagi, di sisi lain TCP melakukanya.
+
+Nilai dari checksum bisa kita dapatkan dari penggabungan beberapa byte berikut.
+
+* pseudoheader = sebagian dari IP header
+* UDP header
+* Sebagian datagram payload
+
+Dalam OS yang berbasis UNIX system nilai checksum di ambil dari kode berikut.
+
+```c
+uint16_t net_checksum_tcpudp(uint16_t length, uint16_t proto,uint8_t *addrs, uint8_t *buf)
+{
+    uint32_t sum = 0;
+
+    sum += net_checksum_add(length, buf);         // payload
+    sum += net_checksum_add(8, addrs);            // src + dst address
+    sum += proto + length;                        // protocol & length
+    return net_checksum_finish(sum);
+}
+```
+
 
