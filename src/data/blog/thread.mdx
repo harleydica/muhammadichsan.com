@@ -23,11 +23,43 @@ Layaknya sebuah process, thread juga mempunyai beberapa atribut di dalamnya. Kar
 
 ![thread](https://ik.imagekit.io/uvma3bkbp/Threads_p5sfJKsPR.JPG?ik-sdk-version=javascript-1.4.3&updatedAt=1668646294380 'thread')
 
-Sebuah thread bisa memiliki ukuran memori yang berbeda-beda tergantung dengan seberapa task yang dilakukan di dalamnya. Kita bisa melihat ke gambar dari thread di atas, disana kita menemukan ada beberapa istilah yang terdengar mungkin masih terdengar asing di telinga anda :)
+Sebuah thread bisa memiliki ukuran memori yang berbeda-beda tergantung dengan seberapa task yang dilakukan di dalamnya. Kita bisa melihat melalui gambar dari thread di atas, disana kita menemukan ada beberapa istilah yang terdengar mungkin masih terdengar asing di telinga anda :)
 
 Sebuah thread mempunyai 2 hal yang pasti dimiliki di setiap dirinya, yaitu Stack dan Register. Di luar thread yaitu di dalam process kita bisa menemukan bagian lainya misalnya, code, global variable, heap dan memory. Dan perlu di ingat juga bahwa 1 process mempunyai 1 stack dan 1 thread juga mempunyai 1 stack, begitu juga dengan register.
 
 Oke sampai disini pasti anda masih bingung dengan thread? kalau masih mari kita tuntaskan sekarang  😁
+
+## Thread di C
+
+Program di bawah ini merupakan contoh implementasi dari penggunaan banyak thread dalam suatu aplikasi (multithreading) menggunakan bahasa C.
+
+```c
+#include <pthread.h>
+#include <unistd.h>
+#include <stdio.h>
+
+void wait(void)
+{
+    sleep(2);
+    printf("Done.\n");
+}
+
+int main(void)
+{
+    pthread_t thread;
+    int err;
+
+    err = pthread_create(&thread, NULL, wait, NULL);
+    
+    printf("Waiting for the thread to end...\n");
+
+    pthread_join(thread, NULL);
+
+    printf("Thread ended.\n");    
+
+    return 0;
+}
+```
 
 
 
