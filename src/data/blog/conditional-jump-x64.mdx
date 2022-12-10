@@ -44,7 +44,7 @@ Dan coba bandingkan dengan menggunakan assembly.
 
 ```nasm\
  cmp    ax, bx      
- jl     Less  
+ je     Less  
  mov    word [X], 1    
  jmp    Both            
 Less: 
@@ -56,4 +56,14 @@ Bagaimana? sangat asing bukan 🤣?
 
 Yaa anda harus bersiap menerima kenyataan bahwa kode if else yang anda tulis dengan mudahnya ternyata sangat ruwet dan ribet sekali di belakangnya (wkwk), ya memang itulah yang akan dilakukan oleh CPU saat program kita berjalan nantinya.
 
-## Compare and See Flag Value 🚩
+## Compare and See Flag Value
+
+Bisa anda lihat di program assembly di atas bahwa disana terdapat sebuah instruksi bernama **CMP** atau bisa kita sebut sebagai **Compare**. Dengan instruksi tersebut lah kita bisa membandingkan dua atau lebih nilai di dalam sebuah register, pointer, maupun memori di stack.
+
+Instruksi CMP ini menggunakan ALU dalam proses komputasinya, di dalam ALU ada beberapa istilah yang akan muncul seperti *parity*, *carry-out*, *zero* dan lainya. Kita lihat lagi ke baris selanjutnya setelah instruksi CMP ada instruksi **JE** yang merupakan singkatan dari *Jump if Equal*, dimana disinilah conditional jump terjadi.
+
+Secara singkat ada 2 instruksi yang digunakan saat kita ingin melakukan pengkondisian di x64 Assembly, yaitu **CMP** dan **JMP**. Dengan CMP 2 nilai akan dibandingkan kemudian ia akan mengisi value di EFLAGS register lalu dilanjutkan oleh JE yang akan mengecek nilai ke EFLAGS register dan melakukan pengkondisian apakah ia akan jump ke label A atau tidak.
+
+Aduhhh pusing mas 😵
+
+Oke-oke mari kita bahas satu per satu mulai dari akarnya 👊
