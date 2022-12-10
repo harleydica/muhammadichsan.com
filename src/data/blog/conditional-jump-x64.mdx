@@ -8,7 +8,7 @@ published: '12/10/2022'
 topics: ['x64']
 keywords:
   [
-    'AWS Lambda'
+    'conditional jump x64'
   ]
 related: []
 ---
@@ -20,3 +20,39 @@ At a high level languange kita akan menemukan berbagai syntax untuk melakukan op
 Yap kembali lagi, walaupun syntax yang berbeda-beda tetapi yang dilakukan oleh CPU tetap saja itu yang dilakukan😄, apasih yang dikerjakan oleh komputer saat kita melakukan operasi pengkondisian? okee untuk menjelaskanya hakikat dari *if else* (wedehh) mari kita berpindah ke x64 assembly.
 
 Loh mengapa kok pakai assembly mas? bukanya ribet ya? nanti tau sendiri alasanya 🤣
+
+## If Else di x64 Assembly
+
+Ketika kita ingin melakukan pengkondisian di assembly tentunya kita harus lebih bekerja keras 3 kali lipat untuk menulis kode, mengapa demikian? mari lihat kode di bawah ini.
+
+Ini merupakan if else atau operasi pengkondisian di bahasa C.
+
+```c 
+int main () {
+
+   int a = 100;
+ 
+   if( a < 20 ) {
+    ...
+   } else {
+    ...
+   }
+}
+```
+
+Dan coba bandingkan dengan menggunakan assembly.
+
+```asm6502
+ cmp    ax, bx      
+ jl     Less  
+ mov    word [X], 1    
+ jmp    Both            
+Less: 
+ mov    word [X], -1  
+Both:
+```
+
+Bagaimana? sangat asing bukan 🤣?
+
+Yaa anda harus bersiap menerima kenyataan bahwa kode if else yang anda tulis dengan mudahnya ternyata sangat ruwet dan ribet sekali di belakangnya (wkwk), ya memang itulah yang akan dilakukan oleh CPU saat program kita berjalan nantinya.
+
