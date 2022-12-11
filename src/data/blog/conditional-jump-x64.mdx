@@ -84,4 +84,16 @@ Dari 16 bit tersebut FLAGS register bisa kita pecah menjadi beberapa bagian keci
 
 ![flags register](https://ik.imagekit.io/uvma3bkbp/Screenshot_from_2022-12-11_08-07-48_BegU6j2gH.png?ik-sdk-version=javascript-1.4.3&updatedAt=1670720980326 'flags register')
 
+Bisa kita lihat di gambar tersebut bahwa satuan yang dipakai untuk setiap satu unit flag ialah 1 bit. Setiap unit tersebut seperti AF, ZF, PF bisa kita sebut sebagai register karena yaa kembali lagi bahwa register adalah memori sementara di CPU yang menyimpan suatu nilai, dan register AF, ZF, dll dinisi menyimpan nilai sebesar 1 bit.
+
+Berbeda dengan data register maupun address register, di flags register ini kita tidak bisa atau jarang kita manipulasi sendiri. Nahh sekarang muncul pertanyaan, bagaiamana nilai bit di flags register bisa terisi?
+
+**Semua itu karena hasil instruksi terakhir**
+
+Yap nilai di dalam flags register bisa terisi karena adanya operasi terakhir yang di eksekusi oleh CPU, perlu di ingat bahwa register ini menyimpan sebuah nilai berupa **status**, nah status dari apa? yap status dari kondisi instruksi yang terakhir di eksekusi.
+
+Oke mari kita bahas satu persatu 😁
+
+### Zero Flag (ZF)
+
 
