@@ -92,8 +92,10 @@ Berbeda dengan data register maupun address register, di flags register ini kita
 
 Yap nilai di dalam flags register bisa terisi karena adanya operasi terakhir yang di eksekusi oleh CPU, perlu di ingat bahwa register ini menyimpan sebuah nilai berupa **status**, nah status dari apa? yap status dari kondisi instruksi yang terakhir di eksekusi.
 
-Oke mari kita bahas satu persatu 😁
+Oke mari carry, parity, adjust, zero dan sign flag dulu karena kelima flag register ini pasti ada di semua arsitektur CPU 😁
 
 ### Zero Flag (ZF)
+
+Zero flag digunakan untuk menyimpan status hasil operasi aritmatika dan operasi bitwise dari instruksi terakhir yang dikerjakan oleh ALU. Semua operasi aritmatika atau perbandingan yang kita lakukan nantinya akan dikerjakan oleh ALU lalu hasilnya akan dikirim ke Zero Flag dalam bentuk bit antara 1 atau 0.
 
 
