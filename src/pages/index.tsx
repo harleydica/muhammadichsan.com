@@ -15,6 +15,8 @@ import { getNewestPortfolio } from '@/libs/sortPortfolio'
 import { GetStaticProps, NextPage } from 'next'
 import readingTime from 'reading-time'
 
+// q
+
 interface HomePageProps {
   blogs: Array<Blogs>
   portfolios: Array<PortfolioHeadProps>
