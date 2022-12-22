@@ -1,0 +1,15 @@
+---
+title: 'Filter Word'
+date: '22/12/2021'
+featured: true
+summary: 'Library golang for generate password with 4 option (lowercase, uppercase, symbol, and number)'
+image: 'https://ik.imagekit.io/uvma3bkbp/68747470733a2f2f692e6962622e636f2f6d306b484376742f7061737367656e2e706e67_pa-G8D08S.png?ik-sdk-version=javascript-1.4.3'
+stack: ['Dart']
+link: { github: 'https://github.com/ichsanputr/passgen', live: null }
+---
+
+PassGen is a golang library that allows you as a developer to easily generate random and unique passwords in your project.
+
+PassGen uses a simple algorithm where I use the [rand.Seed()](https://pkg.go.dev/math/rand#Seed) method by entering the Unix Time parameter in order to get a different randomization value in each program code run.
+
+There are 5 parameters needed, the first is the number of password lengths, and the remaining four are followed by the password format. To disable the character type in the password that will be created, you can disable it by entering the false argument.
