@@ -1,6 +1,6 @@
 ---
 title: 'Catatan Kecil OOP dengan Dart'
-summary: 'Mari kita bahas salah satu pondasi terpenting dalam networking yaitu protokol UDP'
+summary: 'Mari kita belajar OOP (Object Oriented Programming) di bahasa Dart'
 featured: true
 author_name: 'Muhammad Ichsanul Fadhil'
 author_image: 'https://ik.imagekit.io/mlnzyx/tr:w-32,h-32/attachment/profile.webp'
@@ -17,7 +17,7 @@ Everything in dart and flutter written at top of OOP (Object Oriented Programmin
 
 So let’s learn them.
 
-## Create Class
+## Membuat Class
 
 Untuk membuat class di dart kita cukup menuliskanya seperti ini.
 
@@ -52,13 +52,26 @@ class Orang{
 }
 ```
 
+Sebuah field bisa memiliki nilai default atau pun tidak, contoh di atas merupakan field yang memiliki nilai default berupa string kosong, hal ini akan bermanfaat ketika anda ingin membuat field yang jarang diisi nilainya atau nilainya bersifat monoton.
+
+Field juga bisa kita isi dengan Null, artinya selain menggunakan opsi defalut value kita juga mengisinya dengan Null. Jika field tidak diisi dengan sebuah value maka otomatis ia akan menjadi null.
+
+Agar sebuah field menjadi *nullable* bisa tidak diisi valuenya kita bisa menggunakan symbol tanda tanya (?) di akhir dari tipe data field.
+
+```dart
+class Orang{
+	String? nama = "";
+	String? golongan_darah = "";
+}
+```
+
 ## Method
 
-Method atau function merupakan sebuah aksi yang bisa kita definisikan di dalam kelas.
+Method atau function merupakan sebuah aksi yang bisa kita definisikan di dalam sebuah class.
 
-Contoh class orang tadi memiliki field nama, tanggal lahir dll. Nah dari situ kita bisa mendefinisikan aksi untuk orang tersebut contohnya seperti bergerak, makan dll.
+Contoh class orang tadi memiliki field nama, tanggal lahir dll. Nah dari situ kita bisa mendefinisikan aksi untuk orang tersebut contohnya seperti bergerak, makan, tidur dll.
 
-Contohnya.
+Contoh dari method.
 
 ```dart
 class Orang{
@@ -84,7 +97,7 @@ class Orang{
 
 Selanjutnya ialah object, kita sudah mengetahui bahwa class merupakan blueprint, yang artinya ia tidak bisa digunakan tanpa adanya object.
 
-Jika tanpa object class yang kita buat tadi ya hanya pendeklarasian saja.
+Jika tanpa object, sebuah class yang kita buat tadi hanyalah sebuag pendeklarasian saja.
 
 Untuk membuat object.
 
@@ -114,11 +127,13 @@ var ichsan = Orang();
 var irsyad = Orang();
 ```
 
+Variabel angger, ichsan, dan irsyad saat ini bertipe data sebagai Object Orang yang bisa kita pakai untuk memanggil method dan field.
+
 ## Memanfaatkan Field di Class
 
-Lantas bagaimana dengan field yang kita definisikan saebelumnya seperti nama goldar dll?
+Lantas bagaimana dengan field yang kita definisikan sebelumnya seperti nama, goldar dll?
 
-Kita bisa menggunakanya dengan menambahkan titik setelah object nya.
+Kita bisa menggunakanya dengan menambahkan titik setelah variabel object nya.
 
 ```dart
 class Orang{
@@ -127,8 +142,8 @@ class Orang{
 
 var angger = Orang(); // variabel angger kini adalah sebuah object
 
-angger.nama = "Angger Rakya"; // Menyetel atribute nama dan golongan darah
-angger.golongan_darah= "O";
+angger.nama = "Angger Rakya"; // memberi value ke atribute nama
+angger.golongan_darah= "O";   // memberi value ke atribute golongan_darah
 
 print(angger.nama);
 // Angger Rakya
@@ -155,7 +170,7 @@ Berbeda dengan field, method disini bukan ****************disetel***************
 
 Next ada constructor.
 
-Constructor merupakan function khusus yang berada di dalam class, untuk membuatnya kita bisa menuliskanya seperti ini.
+Constructor merupakan function khusus yang berada di dalam class, untuk membuatnya kita bisa menuliskanya seperti ini. Kode di dalam constructor akan otomatis dijalankan semuanya saat kita pertama kali membuat object.
 
 ```dart
 class Orang{
@@ -175,13 +190,11 @@ Untuk membuat constructor yaitu dengan membuat method langsung dengan nama class
 
 ## Konsep Parent - Child
 
-Konsep OOP di semua bahasa pemrograman tidak lepas dari konsep Parent dan Child.
-
-Dimana sebuah class bisa bertindak sebagai Parent atau Ibu dan juga sebagai Child atau anak.
+Konsep OOP di semua bahasa pemrograman tidak lepas dari konsep Parent dan Child. Dimana sebuah class bisa bertindak sebagai Parent atau Ibu dan juga sebagai Child atau anak.
 
 Maksud dari konsep ini ialah, sebuah class yang bertindak sebagai parent akan mewariskan **************method************** dan ************field************ yang dimilikinya kepada class ************child************.
 
-Konsep ini juga berelasi dengan real life yang mengatakan pasti orang tua mewariskan sifat, muka , kegantengan yang ia miliki kepada anaknya.
+Konsep ini juga berelasi dengan real life yang mengatakan pasti orang tua mewariskan sifat, muka, kegantengan yang ia miliki kepada anaknya.
 
 Untuk membuat relasi atau mengimplementasikan konsep ini kita bisa menggunakan keyword **************extends**************.
 
@@ -292,7 +305,7 @@ class Orang extends Mahluk{
 }
 
 // buat object
-var orang = = Orang();
+var orang = Orang();
 
 // panggil method setBentuk
 orang.setBentuk();
@@ -351,4 +364,20 @@ void main(){
 }
 ```
 
-Sebuah private method dan field hanya bisa diakses di dalam class itu sendiri.
+Sebuah private method dan field hanya bisa diakses di dalam class itu sendiri. Contohnya seperti kode di bawah ini.
+
+```dart
+class Animal {
+
+  void _makan(){
+    print("nyam nyam");
+  }
+
+	void makanminum(){
+    _makan();
+    print("minum");
+  }
+}
+
+// bisa jalan
+```
