@@ -1,0 +1,354 @@
+---
+title: 'Catatan Kecil OOP dengan Dart'
+summary: 'Mari kita bahas salah satu pondasi terpenting dalam networking yaitu protokol UDP'
+featured: true
+author_name: 'Muhammad Ichsanul Fadhil'
+author_image: 'https://ik.imagekit.io/mlnzyx/tr:w-32,h-32/attachment/profile.webp'
+published: '23/12/2022'
+topics: ['dart']
+keywords:
+  [
+    'Dart OOP'
+  ]
+related: []
+---
+
+Everything in dart and flutter written at top of OOP (Object Oriented Programming).
+
+So let’s learn them.
+
+## Create Class
+
+Untuk membuat class di dart kita cukup menuliskanya seperti ini.
+
+```dart
+class Orang{
+
+}
+```
+
+Itu akan membuat class untuk Orang dimana di dalamnya kita bisa memasukkan properti yang sesuai dengan orang, yang disebut sebagai attribute.
+
+Di dalam kurung kurawal atau lebih tepatnya di dalam class ada 4 komponen yang bisa kita definisikan yaitu.
+
+- Field
+- Constructor
+- Setter dan Getter
+- Method
+
+## Field
+
+Field dalam bahasa indonesia berarti bidang, dimana field ini akan mendeskripsikan dari class.
+
+Contoh yaitu class Orang, pasti setiap orang mempunyai warnakulit, golongan darah, tanggal lahir yang berbeda-beda.
+
+Untuk mendefinisikanya kita bisa melakukanya.
+
+```dart
+class Orang{
+	String nama = "";
+	String golongan_darah = "";
+	String tanggal_lahir= "";
+}
+```
+
+## Method
+
+Method atau function merupakan sebuah aksi yang bisa kita definisikan di dalam kelas.
+
+Contoh class orang tadi memiliki field nama, tanggal lahir dll. Nah dari situ kita bisa mendefinisikan aksi untuk orang tersebut contohnya seperti bergerak, makan dll.
+
+Contohnya.
+
+```dart
+class Orang{
+	String nama = "";
+	String golongan_darah = "";
+	String tanggal_lahir= "";
+
+	void gerak(){
+		print("angkat kaki");
+		print("berdoa");
+		print("jalan");
+	}
+
+	void makan(){
+		print("angkat tangan");
+		print("berdoa");
+		print("makan");
+	}
+}
+```
+
+## Object
+
+Selanjutnya ialah object, kita sudah mengetahui bahwa class merupakan blueprint, yang artinya ia tidak bisa digunakan tanpa adanya object.
+
+Jika tanpa object class yang kita buat tadi ya hanya pendeklarasian saja.
+
+Untuk membuat object.
+
+```dart
+class Orang{
+	String nama = "";
+	String golongan_darah = "";
+	String tanggal_lahir= "";
+
+	void gerak(){
+		print("angkat kaki");
+		print("berdoa");
+		print("jalan");
+	}
+
+	void makan(){
+		print("angkat tangan");
+		print("berdoa");
+		print("makan");
+	}
+}
+
+var angger = Orang();
+// variabel angger kini adalah sebuah object
+
+var ichsan = Orang();
+var irsyad = Orang();
+```
+
+## Memanfaatkan Field di Class
+
+Lantas bagaimana dengan field yang kita definisikan saebelumnya seperti nama goldar dll?
+
+Kita bisa menggunakanya dengan menambahkan titik setelah object nya.
+
+```dart
+class Orang{
+	.....
+}
+
+var angger = Orang(); // variabel angger kini adalah sebuah object
+
+angger.nama = "Angger Rakya"; // Menyetel atribute nama dan golongan darah
+angger.golongan_darah= "O";
+
+print(angger.nama);
+// Angger Rakya
+```
+
+## Memanfaatkan Method di Class
+
+Lantas bagaimana dengan method? bagaimana kita menggunakanya?
+
+```dart
+class Orang{
+	.....
+}
+
+var angger = Orang(); // variabel angger kini adalah sebuah object
+
+angger.makan(); // Menjalankan method makan
+angger.gerak(); // Menjalankan method gerak
+```
+
+Berbeda dengan field, method disini bukan ****************disetel**************** melainkan ********************dijalankan********************.
+
+## Constructor
+
+Next ada constructor.
+
+Constructor merupakan function khusus yang berada di dalam class, untuk membuatnya kita bisa menuliskanya seperti ini.
+
+```dart
+class Orang{
+	
+	......
+
+	Orang(){
+		print("constructor dijalankan");
+	}
+}
+
+var angger = Orang(); // variabel angger kini adalah sebuah object
+// ketika object pertama kali dibuat maka constructor juga otomatis dijalankan
+```
+
+Untuk membuat constructor yaitu dengan membuat method langsung dengan nama class nya.
+
+## Konsep Parent - Child
+
+Konsep OOP di semua bahasa pemrograman tidak lepas dari konsep Parent dan Child.
+
+Dimana sebuah class bisa bertindak sebagai Parent atau Ibu dan juga sebagai Child atau anak.
+
+Maksud dari konsep ini ialah, sebuah class yang bertindak sebagai parent akan mewariskan **************method************** dan ************field************ yang dimilikinya kepada class ************child************.
+
+Konsep ini juga berelasi dengan real life yang mengatakan pasti orang tua mewariskan sifat, muka , kegantengan yang ia miliki kepada anaknya.
+
+Untuk membuat relasi atau mengimplementasikan konsep ini kita bisa menggunakan keyword **************extends**************.
+
+```dart
+class Mahluk{
+	String bentuk = "";
+}
+
+class Orang extends Mahluk{
+	......
+}
+```
+
+Dengan itu otomatis class Orang akan memiliki field bentuk walaupun tanpa mendefinisikan di dalam class nya.
+
+## Super Keyword
+
+Next super keyword.
+
+Ini digunakan saat kita dalam kondisi ************************************************************************************************************mempunyai dua field atau method yang namanya sama di keduanya yaitu di class parent dan child.************************************************************************************************************
+
+Contohnya seperti ini.
+
+```dart
+class Mahluk{
+	String bentuk = "";
+}
+
+class Orang extends Mahluk{
+	String bentuk = "";
+	
+	void setBentuk(){
+		bentuk = "Oval";
+	} 
+}
+```
+
+Kode tersebut di method setBentuk akan menambahkan value Oval ke field bentuk, tetapi yang ia tuju ialah field di dalam class Orang.
+
+Untuk menuju ke field di class parent yaitu Mahluk kita bisa merubahnya seperti ini.
+
+```dart
+class Mahluk{
+	String bentuk = "";
+}
+
+class Orang extends Mahluk{
+	String bentuk = "";
+	
+	void setBentuk(){
+		super.bentuk = "Oval";
+	} 
+}
+```
+
+## Method Overriding
+
+Next adalah oveririding, ini yang sering dipakai saat kita ngoding di flutter.
+
+Overriding memiliki arti Utama dalam indo.
+
+Ini dilakukan jika kita memiliki 2 method dengan nama yang sama di antara class parent dan child. Konsep nya sama dengan Super keyword, yg membedakanya super untuk field dan overriding untuk method.
+
+Contohnya.
+
+```dart
+class Mahluk{
+	void setBentuk(){
+		print("di class mahluk");
+	} 
+}
+
+class Orang extends Mahluk{
+	void setBentuk(){
+		print("di class orang");
+	} 
+}
+
+// buat object
+var orang = =Orang();
+
+// panggil method setBentuk
+orang.setBentuk();
+// yang di panggil ialah di class Orang 
+```
+
+## Annotion @override
+
+Di flutter kita sering melihat kata @override
+
+Itu digunakan hanya sebagai penanda bahwa method di bawahnya melakukan overriding.
+
+Contohnya adalah dengan contoh di atas.
+
+```dart
+class Mahluk{
+	void setBentuk(){
+		print("di class mahluk");
+	} 
+}
+
+class Orang extends Mahluk{
+
+	@override
+	void setBentuk(){
+		print("di class orang");
+	} 
+}
+
+// buat object
+var orang = = Orang();
+
+// panggil method setBentuk
+orang.setBentuk();
+// yang di panggil ialah di class Orang 
+```
+
+Itu hanya sebagai penanda atau pemberitahu bahwa method di bawahnya melakukan overriding.
+
+## Assign Field dengan Constructor
+
+Constructor sendiri ternyata memiliki banyak ragam di dalamnya.
+
+Constructor bisa kita gunakan untuk mengisi value dari field yang kita buat, contohnya seperti ini.
+
+```dart
+class Animal {
+  String tinggi;
+  String berat;
+
+  Animal(t, b): 
+    this.tinggi = t,
+    this.berat = b;
+}
+
+void main(){
+  var kambing = Animal("20","90");
+
+  print(kambing.berat);
+	// 90
+}
+```
+
+Tanpa kita assign menggunakan ********************************************************kambing.berat = “bla bla”******************************************************** disana kita sudah menyetel valuenya dengan sendirinya.
+
+## Private Field dan Method
+
+Ada kalanya dalam suatu class kita ingin mendeklarasikan sebuah field yang ia tidak bisa di akses oleh object maupun child class nya.
+
+Untuk melakukanya kita bisa menambahkan ****_**** di depan nama field dan method.
+
+Contoh.
+
+```dart
+class Animal {
+
+  void _makan(){
+    print("nyam nyam");
+  }
+}
+
+void main(){
+  Animal kucinf = Animal();
+
+  kucing.makan();
+	// error tidak bisa menemukan method karena privat
+}
+```
+
+Sebuah private method dan field hanya bisa diakses di dalam class itu sendiri.
