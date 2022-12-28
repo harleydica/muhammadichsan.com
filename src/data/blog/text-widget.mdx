@@ -1,0 +1,52 @@
+---
+title: 'Flutter Journey #1 : Text Widget'
+summary: 'Flutter Journey pertama, mari kita bahas salah satu widget yang paling sering dipakai, yaitu Text Widget'
+featured: false
+author_name: 'Muhammad Ichsanul Fadhil'
+author_image: 'https://ik.imagekit.io/mlnzyx/tr:w-32,h-32/attachment/profile.webp'
+published: '12/28/2022'
+topics: ['flutter']
+keywords:
+  [
+    ' Text Widget Flutter'
+  ]
+related: []
+---
+
+Selamat datang di series pertama dari Flutter Journey 👏
+
+Di series pertama ini kita akan belajar bersama mengenai salah satu widget yang pasti dipakai saat kita membangun sebuah aplikasi dengan flutter, yap ia adalah **Text Widget**.
+
+Widget ini wajib kita kuasai kenapa begitu? bayangkan saja sebuah aplikasi tanpa adanya text :wkwkw pasti akan  terasa aneh bukan. Text Widget berfungsi untuk menampilkan sebuah data biasanya berupa string ke layar UI dengan berbagai format yang bisa kita setting melaui constructor class nya.
+
+Text widget di definisikan oleh flutter sebagai berikut.
+
+> *A run of text with a single style.*
+> 
+
+Sebuah text widget akan menampilkan data string yang kita definisikan ke layar, entah dalam satu baris yang sama atau multiple baris itu tergantung oleh layout constraint yang kita tetapkan.
+
+Jika kita menengok ke code constructor dari class Text maka kita akan menemukan seperti ini.
+
+```dart
+const Text(
+    String this.data, {
+    super.key,
+    this.style,
+    this.strutStyle,
+    this.textAlign,
+    this.textDirection,
+    this.locale,
+    this.softWrap,
+    this.overflow,
+    this.textScaleFactor,
+    this.maxLines,
+    this.semanticsLabel,
+    this.textWidthBasis,
+    this.textHeightBehavior,
+    this.selectionColor,
+ })
+```
+
+Semua itu yang berawalan dengan this maka ia menunjukkan properti yang bisa kita isi dengan objek/data yang ditetapkan.
+
