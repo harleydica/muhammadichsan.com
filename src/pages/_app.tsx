@@ -22,9 +22,9 @@ const App = ({ Component, pageProps, router }: AppProps) => {
       const SECRET = process.env.NEXT_PUBLIC_SECRET
       ;(async () => {
         try {
-          await umamiClient.get('/api/revalidate?secret=' + SECRET)
+          
         } catch (error) {
-          console.info('revalidate error')
+          
         }
       })()
     }
