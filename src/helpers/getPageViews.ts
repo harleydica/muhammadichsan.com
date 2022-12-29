@@ -37,8 +37,6 @@ export const getPageViews = async (slug: string): Promise<PageViewsReturn> => {
 
   const blogURL = `/api/websites/${websitesId}/stats?start_at=${firtsDeployedAppAtMs}&end_at=${end_date.getTime()}&url=/blog/port-forwarding-indihome-router-zte-f609`
 
-  conso
-
   const responseBlog = await umami.get<PageViews>(blogURL, config)
 
   const mergedResponseData = Object.values(responseBlog.data)
