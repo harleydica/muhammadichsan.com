@@ -22,7 +22,6 @@ const reducePageViewsToNumber = (arr: Array<PageViews>) =>
   }).pageviews.value
 
 export const getPageViews = async (slug: string): Promise<PageViewsReturn> => {
-  const end_date = new Date().getTime()
 
   const token = await getTokenFromUmami()
   if (!token) {
