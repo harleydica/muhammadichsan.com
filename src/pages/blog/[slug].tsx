@@ -191,7 +191,6 @@ interface HTTP {
 }
 
 const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
-  const [setPostViews] = useState<number>(0)
 
   const metaData = getMetaDataBlog({
     ...header,
@@ -204,22 +203,6 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
     month: 'short',
     year: 'numeric'
   }
-
-  useEffect(() => {
-    ;(async () => {
-      if (isProd) {
-        try {
-          const response = await umamiClient.get<HTTP>('/api/umami/blogviews?slug=' + header.slug)
-
-          setPostViews(response.data.data ?? 0)
-        } catch (error) {
-          console.info('Could not retrieve page views')
-        }
-      } else {
-        setPostViews(0)
-      }
-    })()
-  }, [header.slug])
 
   console.log(header);
 
