@@ -3,7 +3,7 @@
 // import EditButton from '@/components/mollecules/EditButton'
 // import MDXComponents from '@/components/organism/MDXComponents'
 // import ContentImage from '@/components/organism/MDXComponents/ContentImage'
-// import UnstyledLink from '@/components/atoms/UnstyledLink'
+import UnstyledLink from '@/components/atoms/UnstyledLink'
 // import Layout from '@/components/templates/Layout'
 
 // import { Blogs } from '@/data/blog/blog.type'
