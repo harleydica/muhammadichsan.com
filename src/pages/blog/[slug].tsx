@@ -205,6 +205,22 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
     year: 'numeric'
   }
 
+  useEffect(() => {
+    ;(async () => {
+      if (isProd) {
+        try {
+          const response = await umamiClient.get<HTTP>('/api/umami/blogviews?slug=' + header.slug)
+
+          setPostViews(response.data.data ?? 0)
+        } catch (error) {
+          console.info('Could not retrieve page views')
+        }
+      } else {
+        setPostViews(0)
+      }
+    })()
+  }, [header.slug])
+
   console.log(header);
 
   return (
@@ -221,6 +237,7 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
                 <HiOutlineClock className={twclsx('text-lg')} />
                 <p>{header.est_read}</p>
               </div>
+
             </div>
             <div className={twclsx('flex items-center', 'gap-2')}>
               <HiOutlineCalendar className={twclsx('text-lg')} />
