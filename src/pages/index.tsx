@@ -51,7 +51,7 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
         data={blogs}
         Component={BlogCard}
         link={{
-          to: 'https://www.google.com',
+          to: 'https://blog.muhammadichsan.com',
           children: 'See all article'
         }}
       />
