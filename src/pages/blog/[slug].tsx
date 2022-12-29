@@ -212,7 +212,7 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
 
               <div className={twclsx('flex items-center', 'gap-2', 'text-sm md:text-base')}>
                 <AiOutlineTags className={twclsx('text-lg')} />
-                {<p>Kowoww</p>}
+                {<p>header.topics[0]</p>}
               </div>
             </div>
             <div className={twclsx('flex items-center', 'gap-2')}>
