@@ -1,6 +1,6 @@
 import Axios from 'axios'
 
-const UMAMI_URL = 'https://umami.taufikcrisnawan.dev'
+const UMAMI_URL = 'umami.taufikcrisnawan.dev'
 
 const headers = { 'Content-Type': 'application/json' }
 
