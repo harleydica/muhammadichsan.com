@@ -28,6 +28,7 @@ export const getPageViews = async (slug: string): Promise<PageViewsReturn> => {
     return { isError: true, data: null }
   }
   const end_date = new Date()
+  console.log(end_date.getTime())
 
   const websitesId = '4bfe1718-9cc9-4831-836f-98d894cc7631'
   // please change to your first deploy umami app
@@ -35,6 +36,8 @@ export const getPageViews = async (slug: string): Promise<PageViewsReturn> => {
   const config = { headers: { Authorization: `Bearer ${token}` } }
 
   const blogURL = `/api/websites/${websitesId}/stats?start_at=${firtsDeployedAppAtMs}&end_at=${end_date.getTime()}&url=/blog/port-forwarding-indihome-router-zte-f609`
+
+  conso
 
   const responseBlog = await umami.get<PageViews>(blogURL, config)
 
