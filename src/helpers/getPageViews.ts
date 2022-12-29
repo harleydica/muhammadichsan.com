@@ -29,7 +29,7 @@ export const getPageViews = async (slug: string): Promise<PageViewsReturn> => {
   }
   const end_date = new Date()
 
-  const websitesId = 'ed4514ff-0629-43ad-bff0-5bba16e9f785'
+  const websitesId = '4bfe1718-9cc9-4831-836f-98d894cc7631'
   // please change to your first deploy umami app
   const firtsDeployedAppAtMs = 1671642000000
   const config = { headers: { Authorization: `Bearer ${token}` } }
