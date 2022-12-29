@@ -171,7 +171,7 @@ import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import { ParsedUrlQuery } from 'querystring'
 import { useEffect, useState } from 'react'
-import { HiOutlineCalendar, HiOutlineClock, HiOutlineEye } from 'react-icons/hi'
+import { HiOutlineCalendar, HiOutlineClock } from 'react-icons/hi'
 import readingTime from 'reading-time'
 import rehypeSlug from 'rehype-slug'
 
@@ -191,7 +191,7 @@ interface HTTP {
 }
 
 const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
-  const [postViews, setPostViews] = useState<number>(0)
+  const [setPostViews] = useState<number>(0)
 
   const metaData = getMetaDataBlog({
     ...header,
