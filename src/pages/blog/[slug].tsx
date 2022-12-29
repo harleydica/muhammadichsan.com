@@ -81,20 +81,20 @@
 //                 height={32}
 //                 alt={header.author_name}
 //               />
-//               <p className={twclsx('text-sm font-medium', 'text-theme-500 dark:text-theme-400')}>
-//               Written by{' '}
-//               <UnstyledLink
-//                 title='Muhammad Ichsanul F'
-//                 className={twclsx(
-//                   'text-primary-600 hover:text-primary-500',
-//                   'dark:text-primary-400 dark:hover:text-primary-300',
-//                   'umami--click--github-profile-button'
-//                 )}
-//                 href='https://github.com/ichsanputr'
-//               >
-//                 Muhammad Ichsanul F
-//               </UnstyledLink>
-//             </p>
+            //   <p className={twclsx('text-sm font-medium', 'text-theme-500 dark:text-theme-400')}>
+            //   Written by{' '}
+            //   <UnstyledLink
+            //     title='Muhammad Ichsanul F'
+            //     className={twclsx(
+            //       'text-primary-600 hover:text-primary-500',
+            //       'dark:text-primary-400 dark:hover:text-primary-300',
+            //       'umami--click--github-profile-button'
+            //     )}
+            //     href='https://github.com/ichsanputr'
+            //   >
+            //     Muhammad Ichsanul F
+            //   </UnstyledLink>
+            // </p>
 //             </div>
 //           </div>
 //         </section>
@@ -256,12 +256,25 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
               <CustomImage
                 display='intrinsic'
                 className={twclsx('rounded-full')}
-                src={header.author_image}
-                width={32}
+                src='https://ik.imagekit.io/uvma3bkbp/IMG_20220704_122659_yPxOWXqUb.jpg'
+width={32}
                 height={32}
                 alt={header.author_name}
               />
-              <p>{header.author_name}</p>
+                            <p className={twclsx('text-sm font-medium', 'text-theme-500 dark:text-theme-400')}>
+              Written by{' '}
+              <UnstyledLink
+                title='Muhammad Ichsanul F'
+                className={twclsx(
+                  'text-primary-600 hover:text-primary-500',
+                  'dark:text-primary-400 dark:hover:text-primary-300',
+                  'umami--click--github-profile-button'
+                )}
+                href='https://github.com/ichsanputr'
+              >
+                Muhammad Ichsanul F
+              </UnstyledLink>
+            </p>
             </div>
           </div>
         </section>
