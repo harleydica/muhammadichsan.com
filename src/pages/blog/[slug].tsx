@@ -159,18 +159,15 @@ import Layout from '@/components/templates/Layout'
 
 import { Blogs } from '@/data/blog/blog.type'
 import { getBlog, getBlogBySlug } from '@/helpers/getBlog'
-import { isProd } from '@/libs/constants/environmentState'
 import dateFormat, { dateStringToISO } from '@/libs/dateFormat'
 import { getMetaDataBlog } from '@/libs/metaData'
 import { twclsx } from '@/libs/twclsx'
-import umamiClient from '@/libs/umamiClient'
 
 import { LayoutProps } from 'framer-motion'
 import { GetStaticPaths, GetStaticPathsResult, GetStaticProps, NextPage } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import { ParsedUrlQuery } from 'querystring'
-import { useEffect, useState } from 'react'
 import { HiOutlineCalendar, HiOutlineClock } from 'react-icons/hi'
 import readingTime from 'reading-time'
 import rehypeSlug from 'rehype-slug'
@@ -182,12 +179,6 @@ interface BlogPostProps {
 
 interface slug extends ParsedUrlQuery {
   slug: string
-}
-
-interface HTTP {
-  status: boolean
-  message: string
-  data: number
 }
 
 const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
