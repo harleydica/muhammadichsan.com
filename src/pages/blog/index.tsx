@@ -125,7 +125,7 @@ const BlogPage: NextPage<BlogPageProps> = ({ tags, blogs, allBlogs }) => {
       {allBlogs.length > 0 && query.length === 0 ? (
         <div className={twclsx('flex flex-col', 'gap-24')}>
           <section>
-            <h2 className={twclsx('mb-8 mt-10')}>All Post</h2>
+            <h2 className={twclsx('mb-8 mt-10')}>All Article</h2>
             <div className={twclsx('grid grid-cols-1', 'gap-4 flex-auto')}>
               {allBlogs.map((b) => (
                 <Card key={b.slug}>

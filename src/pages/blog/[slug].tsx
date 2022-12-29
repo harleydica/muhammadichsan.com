@@ -12,6 +12,9 @@ import dateFormat, { dateStringToISO } from '@/libs/dateFormat'
 import { getMetaDataBlog } from '@/libs/metaData'
 import { twclsx } from '@/libs/twclsx'
 
+import { GiscusComment } from '@/components/content/blog'
+
+
 import { LayoutProps } from 'framer-motion'
 import { GetStaticPaths, GetStaticPathsResult, GetStaticProps, NextPage } from 'next'
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
@@ -108,6 +111,8 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
           <MDXRemote {...mdxSource} components={MDXComponents} />
         </section>
       </article>
+
+      <GiscusComment />
 
       <EditButton path={`/blog/${header.slug}.mdx`} />
     </Layout>

@@ -17,7 +17,7 @@ const GiscusComment = () => {
         emitMetadata='0'
         inputPosition='top'
         repo='ichsanputr/muhammadichsan.com'
-        repoId='509668607'
+        repoId='R_kgDOGh4MEw'
         category='General'
         categoryId='DIC_kwDOGh4ME84CPxWe'
         mapping='pathname'

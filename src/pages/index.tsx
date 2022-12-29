@@ -46,7 +46,7 @@ const HomePage: NextPage<HomePageProps> = ({ blogs, portfolios }) => {
       />
 
       <Section
-        title='Featured Article'
+        title='My Article'
         gridCols='grid-cols-1 md:grid-cols-2'
         data={blogs}
         Component={BlogCard}
