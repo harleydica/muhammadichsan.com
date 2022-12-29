@@ -169,6 +169,7 @@ import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote'
 import { serialize } from 'next-mdx-remote/serialize'
 import { ParsedUrlQuery } from 'querystring'
 import { HiOutlineCalendar, HiOutlineClock } from 'react-icons/hi'
+import { AiOutlineTags } from 'react-icons/ai'
 import readingTime from 'reading-time'
 import rehypeSlug from 'rehype-slug'
 
@@ -179,6 +180,12 @@ interface BlogPostProps {
 
 interface slug extends ParsedUrlQuery {
   slug: string
+}
+
+interface HTTP {
+  status: boolean
+  message: string
+  data: number
 }
 
 const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
@@ -195,8 +202,6 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
     year: 'numeric'
   }
 
-  console.log(header);
-
   return (
     <Layout {...(metaData as LayoutProps)}>
       <BackToTop />
@@ -212,6 +217,10 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
                 <p>{header.est_read}</p>
               </div>
 
+              <div className={twclsx('flex items-center', 'gap-2', 'text-sm md:text-base')}>
+                <AiOutlineTags className={twclsx('text-lg')} />
+                {<p>Kowoww</p>}
+              </div>
             </div>
             <div className={twclsx('flex items-center', 'gap-2')}>
               <HiOutlineCalendar className={twclsx('text-lg')} />
