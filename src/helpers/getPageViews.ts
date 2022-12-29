@@ -34,13 +34,11 @@ export const getPageViews = async (slug: string): Promise<PageViewsReturn> => {
   const firtsDeployedAppAtMs = 1671642000000
   const config = { headers: { Authorization: `Bearer ${token}` } }
 
-  const articleURL = `/api/websites/${websitesId}/stats?start_at=${firtsDeployedAppAtMs}&end_at=${end_date.getTime()}&url=/blog/${slug.toString()}`
-  const blogURL = `/api/websites/${websitesId}/stats?start_at=${firtsDeployedAppAtMs}&end_at=${end_date.getTime()}&url=/blog/${slug.toString()}`
+  const blogURL = `/api/websites/${websitesId}/stats?start_at=${firtsDeployedAppAtMs}&end_at=${end_date.getTime()}&url=/blog/port-forwarding-indihome-router-zte-f609`
 
-  const responseArticle = await umami.get<PageViews>(articleURL, config)
   const responseBlog = await umami.get<PageViews>(blogURL, config)
 
-  const mergedResponseData = Object.values([responseArticle.data, responseBlog.data])
+  const mergedResponseData = Object.values(responseBlog.data)
 
   const data = reducePageViewsToNumber(mergedResponseData)
 
