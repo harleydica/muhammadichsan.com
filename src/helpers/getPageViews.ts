@@ -28,11 +28,13 @@ export const getPageViews = async (slug: string): Promise<PageViewsReturn> => {
   if (!token) {
     return { isError: true, data: null }
   }
-
+  const websitesId = 'ed4514ff-0629-43ad-bff0-5bba16e9f785'
+  // please change to your first deploy umami app
+  const firtsDeployedAppAtMs = 1671642000000
   const config = { headers: { Authorization: `Bearer ${token}` } }
 
   const articleURL = `/api/website/1/stats?start_at=${1645722000000}&end_at=${end_date}&url=/article/${slug}`
-  const blogURL = `/api/website/1/stats?start_at=${1645722000000}&end_at=${end_date}&url=/blog/${slug}`
+  const blogURL = `/api/websites/${websitesId}/stats?start_at=${firtsDeployedAppAtMs}&end_at=${end_date.getTime()}&url=/blog/${slug.toString()}`
 
   const responseArticle = await umami.get<PageViews>(articleURL, config)
   const responseBlog = await umami.get<PageViews>(blogURL, config)
