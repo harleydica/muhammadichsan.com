@@ -205,6 +205,8 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
     year: 'numeric'
   }
 
+  console.log(header);
+
   return (
     <Layout {...(metaData as LayoutProps)}>
       <BackToTop />
