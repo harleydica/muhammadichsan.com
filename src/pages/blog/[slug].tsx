@@ -181,13 +181,6 @@ interface BlogPostProps {
 interface slug extends ParsedUrlQuery {
   slug: string
 }
-
-interface HTTP {
-  status: boolean
-  message: string
-  data: number
-}
-
 const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
 
   const metaData = getMetaDataBlog({
