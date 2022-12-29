@@ -111,9 +111,6 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
           <MDXRemote {...mdxSource} components={MDXComponents} />
         </section>
       </article>
-
-      <GiscusComment />
-
       <EditButton path={`/blog/${header.slug}.mdx`} />
     </Layout>
   )
