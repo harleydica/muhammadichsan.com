@@ -24,7 +24,6 @@ export default class CustomDocument extends Document {
              <script
               async
               defer
-              strategy='afterInteractive'
               data-do-not-track='true'
               // please change to your data website id
               data-website-id='4bfe1718-9cc9-4831-836f-98d894cc7631'
