@@ -28,6 +28,8 @@ export const getPageViews = async (slug: string): Promise<PageViewsReturn> => {
   if (!token) {
     return { isError: true, data: null }
   }
+  const end_date = new Date()
+
   const websitesId = 'ed4514ff-0629-43ad-bff0-5bba16e9f785'
   // please change to your first deploy umami app
   const firtsDeployedAppAtMs = 1671642000000
