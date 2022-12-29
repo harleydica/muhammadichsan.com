@@ -12,7 +12,7 @@ import dateFormat, { dateStringToISO } from '@/libs/dateFormat'
 import { getMetaDataBlog } from '@/libs/metaData'
 import { twclsx } from '@/libs/twclsx'
 
-import { GiscusComment } from '@/components/content/blog'
+import { GiscusComment } from '@/components/templates/GiscusComment'
 
 
 import { LayoutProps } from 'framer-motion'
