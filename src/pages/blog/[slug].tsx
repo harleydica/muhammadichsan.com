@@ -205,22 +205,6 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
     year: 'numeric'
   }
 
-  useEffect(() => {
-    ;(async () => {
-      if (isProd) {
-        try {
-          const response = await umamiClient.get<HTTP>('/api/umami/blogviews?slug=' + header.slug)
-
-          setPostViews(response.data.data ?? 0)
-        } catch (error) {
-          console.info('Could not retrieve page views')
-        }
-      } else {
-        setPostViews(0)
-      }
-    })()
-  }, [header.slug])
-
   return (
     <Layout {...(metaData as LayoutProps)}>
       <BackToTop />
@@ -234,11 +218,6 @@ const BlogPost: NextPage<BlogPostProps> = ({ header, mdxSource }) => {
               <div className={twclsx('flex items-center', 'gap-2', 'text-sm md:text-base')}>
                 <HiOutlineClock className={twclsx('text-lg')} />
                 <p>{header.est_read}</p>
-              </div>
-
-              <div className={twclsx('flex items-center', 'gap-2', 'text-sm md:text-base')}>
-                <HiOutlineEye className={twclsx('text-lg')} />
-                {postViews > 0 ? <p>{postViews} views</p> : <p>—</p>}
               </div>
             </div>
             <div className={twclsx('flex items-center', 'gap-2')}>
